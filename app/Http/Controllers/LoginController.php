@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
 
-class logincontroller extends Controller
+class LoginController extends Controller
 {
     public function login(Request $request){
         $credentials = $request->only('username', 'password');

@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Document</title>
     <style>
         .image-container img {
@@ -14,11 +17,47 @@
             object-fit: cover;
             object-position: center;
         }
+          h2 {
+    font-family: 'Lucida Handwriting', cursive;
+    font-size: 24px;
+    color: #800080;
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .fancy {
+    text-shadow: 2px 2px 4px rgba(128, 0, 128, 0.5);
+  }
 
     </style>
 </head>
 <body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg">
+                <h1>Select a Country:</h1>
+                <select id="countries">
+                    @foreach ($countries ?? [] as $countryId => $countryName)
+                        <option value="{{ $countryId }}">{{ $countryName }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-lg">
+                <h1>Select a County:</h1>
+                <select id="counties">
+                    <option value="">Select County</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
     @include ("navbar")
+
 
 <div class="container">
     <div class="image-container">
@@ -26,13 +65,18 @@
         <div class="overlay">
             <div class="text">
                 <h1>Miwamu Tourism Management</h1>
-                <h2>START CONTRIBUTING</h2>
-            </div>
+                <h2 style="font-family: 'Lucida Handwriting', cursive; font-size: 24px; color:white; text-shadow: 2px 2px 4px rgba(128, 0, 128, 0.5);">PLAN YOUR VISIT</h2>            </div>
             <div class="submit-button">
                 <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
             </div>
-        </div>
-    </div><br><br><br>
+
+
+</div><br><br><br>
+</div>
+
+
+           
+   
 
     <div class="container">
         <div class="row">
@@ -135,6 +179,59 @@
          --}}
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#countries').change(function() {
+            var countryId = $(this).val();
+            if (countryId) {
+                $.ajax({
+                    url: '/getcounties/' + countryId,
+                    type: 'GET',
+                    success: function(response) {
+                        var options = '<option value="">Select County</option>';
+                        response.forEach(function(county) {
+                            options += '<option value="' + county.id + '">' + county.name + '</option>';
+                        });
+                        $('#counties').html(options);
+                    }
+                });
+            } else {
+                $('#counties').html('<option value="">Select County</option>');
+            }
+        });
+    });
+</script>
+
+
+<script>
+    // Original script for populating counties dropdown
+    $('#countries').on('change', function() {
+        var countryId = $(this).val();
+        $('#counties').empty();
+
+        if (countryId) {
+            $.ajax({
+                url: '/getStates/' + countryId,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    if (data.counties) {
+                        $.each(data.counties, function(key, value) {
+                            $('#counties').append($('<option>', {
+                                value: value.counties_id,
+                                text: value.counties_name
+                            }));
+                        });
+                    }
+                }
+            });
+        }
+    });
+</script>
+
 
 
 

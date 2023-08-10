@@ -14,6 +14,18 @@
             object-fit: cover;
             object-position: center;
         }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
 
     </style>
 </head>
@@ -104,15 +116,46 @@
 <div class="container">
     <div class="row">
             <div class="col-lg">
-            <h1>Additional policies</h1>
-            <p>
-             .Confirmation will be recieved at times of booking<br>
-             .Wheelchair accessibility<br>
-             .Children must be accompanied by the adult<br>
-             .Infants must sit on laps<br>
-             .A current valid passport is required on the day of travel
-            </p>
-           
+            <h1>Park entry fees</h1>
+            <table>
+                <tr>
+                    <th>Status</th>
+                    <th>Age</th>
+                    <th>Fees</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">East African citizens</td>
+                    <td>Children/students</td>
+                    <td>1,500 kshs</td>
+                </tr>
+                <tr>
+                    <td>Adults</td>
+                    <td>2,150 kshs</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Foreign residents</td>
+                    <td>Children/students</td>
+                    <td>1,030 kshs</td>
+                </tr>
+                <tr>
+                    <td>Adults</td>
+                    <td>1,150 kshs</td>
+                </tr>
+                <tr>
+                    <td>Non-foreign residents</td>
+                    <td>Adult</td>
+                    <td>60 US$</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Children</td>
+                    <td>Children</td>
+                    <td>35 US$</td>
+                </tr>
+                <tr>
+                    <td>Adults</td>
+                    <td>35 US$</td>
+                </tr>
+            </table>
 
             
         </div>
@@ -122,19 +165,72 @@
     <div class="container">
         <div class="row">
             <div class="col-lg">
-                <h1>Cancellation Policy</h1>
-                <p>
-                    You can cancel up to 24 hours in advance of the experience for a full refund
-                   .For a full refund, you must cancel at least 24 hours before the experience’s start time.<br>
-                   .Any changes made less than 24 hours before the experience’s start time will not be accepted.
-                   .If you cancel less than 24 hours before the experience’s start time, the amount you paid will not be refunded.
-                   .Cut-off times are based on the experience’s local time.
-                </p>
+                <h1>Nakuru National Park Annual Park Fees</h1>
+                <table>
+                    <tr>
+                        <th>Status</th>
+                        <th>Fees (KSHS)</th>
+                    </tr>
+                    <tr>
+                        <td>Adult</td>
+                        <td>43,100</td>
+                    </tr>
+                    <tr>
+                        <td>Children</td>
+                        <td>10,340</td>
+                    </tr>
+                    <tr>
+                        <td>Corporate</td>
+                        <td>103,440</td>
+                    </tr>
+                    <tr>
+                        <td>Safari driver</td>
+                        <td>6,000</td>
+                    </tr>
+                </table>
                
 
              </div>
 
            
+        </div>
+    </div><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg">
+                <h1>Nakuru National Park Activity Fees</h1>
+                <table>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Fees KSHS</th>
+                    </tr>
+                    <tr>
+                        <td>Birding</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>Walking safaris per person</td>
+                        <td>1,500</td>
+                    </tr>
+                    <tr>
+                        <td>Horseback riding (KWS horses)</td>
+                        <td>2,585</td>
+                    </tr>
+                    <tr>
+                        <td>Horseback riding (Private horses)</td>
+                        <td>1,030</td>
+                    </tr>
+                    <tr>
+                        <td>Security/Guided tours (up to 4hrs)</td>
+                        <td>1,720</td>
+                    </tr>
+                    <tr>
+                        <td>Security/Guided tours (over 4hrs)</td>
+                        <td>3,015</td>
+                    </tr>
+                </table>
+                
+            </div>          
         </div>
     </div><br>
 </div>

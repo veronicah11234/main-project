@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Destination;
 use Illuminate\Support\Facades\Route;
+use App\Models\Destination;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ParkController;
 use App\Http\Controllers\UserController;
@@ -9,8 +9,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\API\BookingController;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +21,13 @@ use App\Http\Controllers\API\BookingController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 Route::get('/login', function () {
     return view('login');
 });
@@ -72,6 +77,10 @@ Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
 Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
 Route::get('/parks', [ParkController::class, 'index'])->name('parks.index');
 Route::get('/parks/{id}', [ParkController::class, 'show'])->name('parks.show');
+Route::get('/getCounties/{id}','MainController@getcounties');
+// Route::get('/getCounties/{id}', 'MainController@getCounties');
+
 
 
 Route::get('verify-email/{token}', [AuthController::class, 'verifyEmail'])->name('verify.email');
+require __DIR__.'/auth.php';

@@ -22,10 +22,10 @@
 
 <div class="container">
     <div class="image-container">
-        <img src="/images/nukurupark3.jpg" alt="Images" class="img-fluid">
+        <img src="/images/nakurucity.png" alt="Images" class="img-fluid">
         <div class="overlay">
             <div class="text">
-                <h1>NAKURU NATIONAL PARK</h1>
+                <h1>NAKURU COUNTY</h1>
             </div>
             <div class="submit-button">
                 <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
@@ -33,179 +33,220 @@
         </div>
     </div><br><br><br>
 
-    <p>
-      <h1>Welcome to Nakuru National park Kenya</h1>
-      Lake Nakuru National Park is one of the best national parks in Kenya given that it has one of the Rift Valley soda Lakes i.e. Lake Nakuru. The park has 3 main gates and once you get into the park you will enjoy a wide variety of wildlife species and especially the Flamingoes which make the lake lool pink.
 
-      <br><br>
-
-    </p>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h2>History of Lake Nakuru National Park</h2>
-                <p>
-                    This is one of the least visited lakes in the Rift Valley. With its alkaline waters, it has become a better destination for seeing flamingos as compared to Lake Nakuru. The lakeshore is also good for seeing and photographing greater kudu. Other attractions in this park include the rugged rocks which emit furious hot springs. 
-                    Popular species on this tour include African fish eagle, yellow billed hornbill and greater/lesser flamingo, among others.
-                </p>
-                <div class="col-12">
-                    <p>
-                      Nakuru National Park, the park most famous for the colonies of flamingos that live on the shores of the park’s Lake Nakuru. Lake Nakuru park Kenya  is a premium game park, one of only three in the country and one of the most visited game parks in Kenya. 
-
-                      Lake Nakuru Park is known as bird lover’s hub because of the numerous birds that make home in this park. Lake Nakuru kenya Park is home to over 400 bird species including the flamingos that live on the lake and in the park’s savannah grasslands. The bird species include but not limited to African Fish Eagle, Slender-billed greenbul, Long-tailed widowbird, Rufous-throated wryneck, Montane white-eye,Red-capped lark, Northern puffback, Rüppell’s robin-chat, Shining sunbird and many more 
-
-                      Nakuru National Park though famous for the numerous birds, it’s also a wild game destination for animal lovers and wildlife explorers.  Lake Nakuru park  is a habitat  to over 100 endangered  Rhinos distributed between the black and white rhinos; the park is also home to the endangered Rothschild’s giraffe and other 50 or more animal species that include buffalos, waterbucks, lions, impalas and many more. 
-                    </p>
-                    <div class="submit-button">
-                      <iframe width="952" height="559" src="https://www.youtube.com/embed/0PacedDje-E" title="Lake Nakuru National Park KENYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="col-sm-2">
+               <div class="filter-card">
+                    <div class="filter-options">
+                        <h4>Price:</h4>
+                        <label class="checkbox">
+                            <input type="checkbox" name="price" value="0">
+                            $0
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="price" value="500">
+                            $500+
+                        </label>
                     </div>
-
-   
-            <div class="col-12">
-                <p>
-                    The Lake Nakuru National Park over the years has grown to become one of the most visited parks in Kenya by travelers annually because of the birds and other great features in the park. Travelers that visit Lake Nakuru  Park get to indulge in activities such as bird watching, game viewing, camping and picnicking on the beautiful rocky view points in the park and many more activities. 
-
-                    Nakuru  Kenya National Park was first declared a conservation area for the birds that were Lake Nakuru including the flamingos in 1957 and the conserved area only included Lake Nakuru and small parts of the surrounding areas. This was done to preserve the lake, reduce on the pollution of the lake and conserve the bird life that was blooming on Lake Nakuru.  
-                    
-                    In 1961 the already declared conversed area which is the current southern section of Nakuru National Park was declared a bird sanctuary and different protocols introduced to ensure bird protection in the that area were put in place. </p><br>
-                    
-                    <p>
-                    In 1968 Lake Nakuru National Park, was gazetted as one of Kenya’s National parks. This was after the park area was expanded to include the northern savannah lands of the park which saw the park’s total area grow to 188km2. Also several mammals were introduced to the park, to diversify the park from just a bird sanctuary to also an animal park. 
-                    
-                    Lake Nakuru National Park was given the honours of being home to the very rare and endangered Rothschild giraffes in 1977 when the giraffes were brought to Lake Nakuru National park from western Kenya for conservation and protection. This initiative by the Kenyan government was a boast to its efforts of preserving wildlife in the East African country. 
-                    
-                    After the rothschild’s giraffes, rhinos were also introduced in Lake Nakuru Kenya Park in the 1980s; in a Kenyan government initiative to conserve the endangered rhinos that were drastically declining in number.  This was the first of its kind in Kenya and in 1984, Lake Nakuru park was designated the first government protected rhino sanctuary in Kenya.   
-                    
-                    To further protect the rhinos from poachers, the Kenyan government erected a 188km2 electric fence around Nakuru National Park in 1986. This fence was and still serves the purpose of keeping poachers away from the Lake Nakuru park as well as keeping the rhinos within the bounds of the park. After the successful construction of the 188km2 electric fence and the Kenyan government officially declared Lake Nakuru Park a rhino sanctuary in 1987. 
-                    
-                    Lake Nakuru National Park is a UNESCO World heritage site and it’s internationally recognised as an IBA since 2009 for the over 400 bird species living in the park; in 1990 Lake Nakuru was declared a RAMSAR site. </p><br>
-                    
-                    
-                    From the history of the park, Lake Nakuru  Park evolved, grown and developed greatly over the years in so many ways which makes it a perfect destination for a safari not to just experience the developed of the park but most all to experience the bird life, wildlife and the extraordinary beauty of the this unique park is central Kenya Nakuru town. 
-                </p>
-                <h3>Discover lake Nakuru National park</h3>
-
-                <div class="card-body">
-                  <div class="row">
-                      <div class="col-sm-4 ">
-                          <img src="/images/nakuru0.png"" alt="Images" class="img-fluid" style="height: 350px; width:400px">
-                          <h1>Lake Nakuru Safaris</h1>
-                      </div><br/>
-                      
-                      <div class="col-sm-4 ">
-                        <img src="/images/logde.jpg" alt="Images" class="img-fluid" style="height: 350px; width:400px">
-                        <h1>
-                          Where to stay
-                        </h1>
-                      </div><br/>
-                      <div class="col-sm-4 ">
-                          <img src="/images/nakurupark1.jpeg" alt="Images" class="img-fluid" style="height: 350px; width:400px">
-                          <h1>
-                            Best time to go
-                          </h1>
-                      </div><br/>
-                     
-              
-              
-                      <div class="col-sm-4 ">
-                          <img src="/images/entrance.jpg" alt="Images" class="img-fluid" style="height: 350px; width:400px">
-                          <h1>
-                            Entrance fee
-                          </h1>
-                      </div><br/>
-                      <div class="col-sm-4 ">
-                          <img src="/images/naivasha06.jpeg" alt="Images" class="img-fluid" style="height: 350px; width:400px">
-                          <h1>Tour operations</h1>
-                      </div><br/>
-                      <div class="col-sm-4 ">
-                        <img src="/images/DWN.png" alt="Images" class="img-fluid" style="height: 350px; width:400px">
-                            <h1>Attractions </h1>                 
-                           </div><br/>
-                     
+        
+                    <div class="filter-options">
+                        <h4>Duration:</h4>
+                        <label class="checkbox">
+                            <input type="checkbox" name="duration" value="1">
+                            Up to 1 hour
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="duration" value="4">
+                            1 to 4 hours
+                        </label>
+                        <!-- Add more options as needed -->
+                    </div>
+        
+                    <div class="filter-options">
+                        <h4>Time of Day:</h4>
+                        <label class="checkbox">
+                            <input type="checkbox" name="time" value="6am—12pm">
+                            6am—12pm
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="time" value="5pm—12am">
+                            5pm—12am
+                        </label>
+                        <!-- Add more options as needed -->
+                </div>
+        
+                    <!-- Add more filter options as needed -->
+            </div>
+            </div>
+            <div class="col-lg-10" >
+                <div class="card mb" style="width: 1000px; height:450px" >
+                    <div class="row g-0">
+                      <div class="col-md">
+                        <img src="/images/park2.png" class="img-fluid rounded-start" alt="..." style="height:350px; width:450px">
                       </div>
+                      <div class="col-md">
+                        <div class="card-body">
+                         <div class="card-description">
+                            <h5 class="card-title">8 Days, 7 Nights Safari – Lake Nakuru, Maasai Mara, Naivasha and Amboseli Park</h5>
+                            <p class="card-text">Great experience, 8 days of wonder. Am happy to have spend my charismas on a Safari. All parks are filled with wildlife, big and small, and you are guaranteed to see all of the Big 5 plus more. That’s why prefer multi day safaris.
+                                Read more about 8 Days, 7 Nights Safari – Lake Nakuru, Maasai Mara, Naivasha and Amboseli Park - https://www.viator.com/tours/Nairobi/8-Days-7-Nights-Lake-Nakuru-Maasai-Mara-Naivasha-and-Amboseli-National-Park/d5280-60186P27?mcid=56757</p>
+                                <div class="rating">
+                                    <p>8.3</p>
+                                    <p>245 reviews</p>
+                                </div>
+                        </div>
+                            <div class="card-prices">
+                                <p class="price">Price from</p>
+                                <p class="price">$ 1,160</p>
+                                <p class="price">per Adults</p>
+                                <button class="btn btn-success">Check availability</button>
+                            </div>
+                          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  </div>          
-          <h1>Lake Nakuru National Park</h1>
-          <p>
-            Lake Nakuru national park is located in the central part of Kenya on the floor of the great rift valley in the northwestern direction from Nairobi. This national park is characterized by woodlands as well as grasslands which act as habitat for the different wildlife species which can be seen during game viewing experiences in Lake Nakuru national park. 
-            Kenya Wildlife Services manages Lake Nakuru park as well as other national parks and national reserves in Kenya and is also in charge of the conservation of wildlife.
-          </p>
-          <p>
-            Lake Nakuru national park has beautiful scenery with attractions such as Lake Nakuru which the national park is known for, the rift valley escarpment. The landscape of this national park also consists of steep rocky escarpments, dense forests as well as hills which act as viewpoints during game watching experiences at this destination. This national park is also strategically located at a short distance from Nairobi which is the capital city of Kenya.
-             Lake Nakuru park is also found close to Hells gate national park and Naivasha national park which makes it worth visiting. Soysambu Conservancy is also found on the south-eastern boundary of the national park.
-          </p>
-          <p>
-            Entry gates at this national park include the Nderit gate which is less used for entry, Lanet gate or the main entrance gate which is located not far from Nakuru town. Park entry fees for tourists visiting Lake Nakuru park can be paid according to citizens, residents, and non-residents. 
-          </p>
-          <p>
-            Forms of payment for park entry fees at Lake Nakuru park include Mpesa, visa card as well as direct deposits to the Kenya Wildlife Services bank account at any of the gates used to access the national park.
-          </p>
-          <h2>
-            Activities in lake Nakuru
-          </h2>
-          <p>
-            Game drives are among the ways of experiencing Lake Nakuru national park. These drives provide wildlife viewing experiences close to the wildlife species such as the white rhinos, leopards, lions, giraffes, hippos, impalas, waterbucks among others. 
-            These game drives take place at different times of day which provides unique experiences during safaris at this destination.
-          </p>
-          <p>
-            Bird watching is another interesting activity that is carried out in Lake Nakuru national park. This is because of the various bird species which can be seen in the different birding spots around the national park.
+            </div>
+        </div>
+    </div>
 
-            Hiking is another activity that takes place in Lake Nakuru national park and it takes place as tourists visit the viewpoints around the national park.
-          </p>
-          <h3>
-            Attractions in Lake Nakuru
-          </h3>
-          <p>
-            Lake Nakuru is one of the attractions which this national park is famous for. This is because of the large numbers of flamingos which can be seen along the shores of this lake. The lake is a shallow soda lake that attracts the flamingos to its alkaline shores as they feed on algae.
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="filter-card">
+                    <div class="filter-options">
+                        <label class="checkbox">
+                            <h4>    Property rating:</h2>
+                            <input type="checkbox" name="star" value="5">
+                            5 stars
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="star" value="4">
+                            4 stars
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="star" value="3">
+                            3 stars
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="star" value="2">
+                            2 stars
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="star" value="1">
+                            1 star
+                        </label><br>
+                        <label class="checkbox">
+                            <h4>Distance from Nakuru center:</h2>
+                                <input type="checkbox" name="review" value="9">
+                            Superb: 9+
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="review" value="8">
+                            Very good: 8+
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="review" value="7">
+                            Good: 7+
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="review" value="6">
+                            Pleasant: 6+
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10" >
+                <div class="card mb" style="width: 1000px; height:450px" >
+                    <div class="row g-0">
+                      <div class="col-md">
+                        <img src="/images/park3.png" class="img-fluid rounded-start" alt="..." style="height:350px">
+                      </div>
+                      <div class="col-md">
+                        <div class="card-body">
+                         <div class="card-description">
+                            <h5 class="card-title">4 Days, 3 Nights Safari – Lake Nakuru and Maasai Mara Safari</h5>
+                            <p class="card-text">From lions and wildebeests to flamingos and hippos, our tour offers the ultimate variety of Kenya’s wildlife. In 4 days you will experience vast savannah teeming with the Big Five, lakes filled with colorful birds, plus forests and parks populated by rhinos, leopards, giraffes and more.
 
-Many other bird species can also be seen at this lake which makes it a good birding spot and a birders haven to experience both the native and migratory birds.
+                                Read more about 4 Days, 3 Nights Safari – Lake Nakuru and Maasai Mara Safari - https://www.viator.com/tours/Nairobi/4-Days-3-Nights-Lake-Nakuru-to-Maasai-Mara-Safari/d5280-60186P25?mcid=56757</p>
+                                <div class="rating">
+                                    <p>9.3</p>
+                                    <p>345 reviews</p>
+                                </div>
+                        </div>
+                            <div class="card-prices">
+                                <p class="price">Price from</p>
+                                <p class="price">$1,574.36</p>
+                                <p class="price">per person</p>
+                                <button class="btn btn-success">Check availability</button>
+                            </div>
+                          <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
 
-The types of flamingos which can be seen at this lake are lesser and greater flamingos which flock the lake with their pink color. These flamingos can be seen from viewpoints around the national park such as baboon cliff and Lion hill.
-
-Wildlife species of a variety can also be seen in Lake Nakuru national park despite its smaller size compared to other national parks and reserves around Kenya. The wildlife species which can be seen include waterbucks, white rhinos, black rhinos which can be seen in the woodlands, Rothschild giraffes, leopards, lions, cheetahs among others.
-
-
-          </p>
-          <ul>
-            <li>
-              Bird species which can be seen in Lake Nakuru national park include both the migrant and native bird species such as the greater and lesser flamingos, African fish eagle, goliath heron, hammer kops, pied kingfishers,
-               eagles, white pelicans, Hottentot teals, starlings, black winged lapwings, crab plovers, grey crowned cranes and many others.
-
-            </li>
-            <li>
-              Waterfalls in Lake Nakuru national park include Makalia waterfalls which is located in the southern part of the national park is a good spot for hikes as well as picnics for tourists as they explore the beautiful scenery and surroundings at this destination.
-            </li>
-            <li>
-              Viewpoints within the national park provide good vantage spots to see the different wildlife species as well as other attractions within Lake Nakuru national park. some of the viewpoints include the baboon cliff, Makalia cliff among others.
-
-
-            </li>
-            <li>
-              Rivers that provide water to Lake Nakuru include the Njoro River, Makalia river, and Enderit river.
-            </li>
-          </ul>
-          <h4>
-            How to get there
-          </h4>
-          <p>
-            By road, Lake Nakuru national park can be accessed by driving from Nairobi to the entry gates of the national park such as the main gate which is located near Nakuru town or using the Lanet gate from the Nairobi-Nakuru highway.
-
-By air/ flight, tourists can use Naishi airstrip which is found in the southern part of the national park. 
-          </p>
-          <p>
-            Accommodations around Lake Nakuru national park are categorized into luxury accommodations, midrange accommodations, and budget accommodations as well as camping. The accommodation facilities around this national park include Sarova lion hill lodge, Lake Nakuru Lodge, Lake Nakuru flamingo lodge, Merica hotel, Mbweha camp, Miali saba camp, Mirius guesthouse, Hotel waterbuck Nakuru among others.
-
-Tourists can also opt for camping as an option of accommodation during their safaris and some of the campsites in Lake Nakuru national park include the following; Naishi campsite, Rhino campsite, Soysambu campsite, Kambi nyuki campsite, Makalia campsite among others.  Experience the beautiful flamingos as well as a variety of wildlife during a safari to Lake Nakuru national park as you explore its different attractions.
-          </p>
-          
-                  <!-- Add more image boxes as needed -->
-              </div>
-
-  </div>
-</div>
-
-    
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="filter-card">
+                    <h3>Filter by:</h3>
+                    <div class="filter-options">
+                        <label class="checkbox">
+                            <h4>Review score:</h2>
+                                <input type="checkbox" name="review" value="9">
+                            Superb: 9+
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="review" value="8">
+                            Very good: 8+
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="review" value="7">
+                            Good: 7+
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="review" value="6">
+                            Pleasant: 6+
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10" >
+                <div class="card mb" style="width: 1000px; height:450px" >
+                    <div class="row g-0">
+                      <div class="col-md">
+                        <img src="/images/park4.png" class="img-fluid rounded-start" alt="..." style="height:450px; width:450px">
+                      </div>
+                      <div class="col-md">
+                        <div class="card-body">
+                         <div class="card-description">
+                            <h5 class="card-title">4X4 Lake Nakuru Day Trip Safari – & Optional Lake Naivasha Boat</h5>
+                            <p class="card-text">This is a full day excursion that takes you on a Safari adventure outside Nairobi visiting four attractions withing the Great Rift valley. Lake Nakuru gives you the opportunity to observe the world renowned flamingos as well search for other wildlife such as buffaloes, rhino, giraffes and baboons. Lake Nakuru is world famous also as a sanctuary for both black and white rhino. Besides that, more than 400 species of birds can be seen in the park.
+                                Read more about 4X4 Lake Nakuru Day Trip Safari – & Optional Lake Naivasha Boat - https://www.viator.com/tours/Rift-Valley-Province/Day-Trip-Lake-Nakuru-Park-with-optional-Naivasha-Boat-Tour-or-Menengai-Crater/d50980-60186P26?mcid=56757</p>
+                                <div class="rating">
+                                    <p>9.3</p>
+                                    <p>245 reviews</p>
+                                </div>
+                        </div>
+                            <div class="card-prices">
+                                <p class="price">Price from</p>
+                                <p class="price">$150.00</p>
+                                <p class="price">per person</p>
+                                <button class="btn btn-success">Check availability</button>
+                            </div>
+                          <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
 
 
 <footer class="bg-dark text-white py-4">
@@ -234,6 +275,7 @@ Tourists can also opt for camping as an option of accommodation during their saf
       </div>
     </div>
   </footer>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
 </body>

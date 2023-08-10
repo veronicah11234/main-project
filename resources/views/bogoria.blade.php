@@ -14,6 +14,18 @@
             object-fit: cover;
             object-position: center;
         }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
 
     </style>
 </head>
@@ -91,6 +103,52 @@ Read more about Lake Bogoria Flamingos Tour from Nairobi
 
             </div>
            
+        </div>
+    </div><br>
+    <div class="container">
+        <div class="row">
+                <div class="col-lg">
+                <h1>Park entry fees</h1>
+                <table>
+                    <tr>
+                        <th>Status</th>
+                        <th>Age</th>
+                        <th>Fees</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">East African citizens</td>
+                        <td>Children/students</td>
+                        <td>860 kshs</td>
+                    </tr>
+                    <tr>
+                        <td>Adults</td>
+                        <td>215 kshs</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Foreign residents</td>
+                        <td>Children/students</td>
+                        <td>1,500 kshs</td>
+                    </tr>
+                    <tr>
+                        <td>Adults</td>
+                        <td>2,000 kshs</td>
+                    </tr>
+                    <tr>
+                        <td>Non-foreign residents</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Children</td>
+                        <td>Children</td>
+                        <td>500 kshs</td>
+                    </tr>
+                    <tr>
+                        <td>Adults</td>
+                        <td>1,000 kshs</td>
+                    </tr>
+                </table>
+    
+                
+            </div>
         </div>
     </div><br>
 <div class="container">

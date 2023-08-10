@@ -1,47 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        .top-nav{
-            background-color: darkorange;
-            padding: 20px 0;
-        }
-        .top-nav ul li{
-            display: inline;
-            padding: 14px 28px;
-        }
-        .top-nav ul li a{
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }
-        .top-nav ul li a:hover{
-            opacity: 0.8;
-        }
-    </style>
-</head>
-<body>
-    {{-- Navigation --}}
-    <div class="top-nav">
-        <nav>
-            <ul>
-               
-                <li><a href="/signup">Signup</a></li> 
-                <li><a href="/login">Login</a></li>
-                <li><a href="profile">profile</a></li>
-            </ul>
-        </nav>
-    </div>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-   
-    @yield('errors')
-    @yield('success')
-    @yield('content')
-    @yield('image-section')
-    {{-- Footer --}}
-</body>
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @include('layouts.navigation')
+
+            <!-- Page Heading -->
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
+    </body>
 </html>
