@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\Log;
 class AdminController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
+    public function index()
+    {
+        return view('admin.index');
+    }
+    public function countries()
+    {
+        return view('countries.admin'); // Load the admin countries index view
+    }
+    // public function countiesIndex()
+    // {
+    //     return view('admin.counties.index'); // Load the admin countries index view
+    // }
 
         public function assign_roles(Request $request): JsonResponse
         {

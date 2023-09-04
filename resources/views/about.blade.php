@@ -83,9 +83,9 @@
             <img src="/images/narok0.png" alt="Images" class="img-fluid">
         </div>
     </div>
-</div>
+</div><br><br>
 
-<div class="card ">
+{{-- <div class="card ">
     <div class="row">
         <div class="col-md-4">
             <a href="#"><i class="bi bi-tropical-storm"></i></a>
@@ -109,7 +109,45 @@
             </h2>
         </div>
     </div>
-</div><br><br>
+</div><br><br> --}}
+
+
+
+<div class="card-body">
+    <div class="row">
+        <div class="col-sm-4 ">
+            <h1 style="background-color:rgb(68, 138, 68)">
+                OUR VISION
+            </h1>
+            <p>
+                To be the most trusted, customer-focused, and successful tours and travel Company providing experience and memories of a lifetime to our esteemed client.<br>
+                We aim to be the leading provider of safari packages and related travel services to both local and international markets.
+            </p>
+        </div><br/>
+        
+        <div class="col-sm-4 ">
+            <h1 style="background-color:rgb(68, 138, 68)">
+                OUR MISSION
+            </h1>
+            <p>
+                To dedicate the highest quality of customer service with a sense of warmth, friendliness, individual pride, and company spirit.
+            </p>
+        </div><br/>
+        <div class="col-sm-4 ">
+            <h1 style="background-color:rgb(68, 138, 68)">
+                CORE VALUES
+            </h1>
+            <p>
+                Our core values are deeply embedded within our organizational DNA and guide our conduct in everything we do.<br>
+                Integrity - Respect - Accountability - Quality Service - Continuous Improvement - Innovation.
+            </p>
+        </div><br/>
+        </div><br/>
+
+</div>
+
+</div>
+
 
 <footer class="bg-dark text-white py-4">
     <div class="container">

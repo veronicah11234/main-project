@@ -14,6 +14,15 @@
             object-fit: cover;
             object-position: center;
         }
+              .card-body .col-sm-4 img {
+                    height: 350px;
+                    width: 400px;
+                    transition: transform 0.3s ease;
+                }
+
+        .card-body .col-sm-4 img:hover {
+          transform: scale(1.1); /* Increase the scale to make the image appear larger on hover */
+        }
 
     </style>
 </head>

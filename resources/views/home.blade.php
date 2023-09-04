@@ -12,8 +12,8 @@
     <style>
         .image-container img {
             display: block;
-            width: 2500px;
-            height: 2500px;
+            width: 8500px;
+            height: 8500px;
             object-fit: cover;
             object-position: center;
         }
@@ -22,7 +22,59 @@
     font-size: 24px;
     color: #800080;
   }
+  .video-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: black; /* Optional background color */
+}
 
+/* Style the video to cover the container */
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* .video-container {
+            position: relative;
+            width: 100%;
+            height: 400px; /* Adjust the height as needed */
+        } */
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .overlay h1, .overlay h2 {
+            font-family: 'Lucida Handwriting', cursive;
+            font-size: 24px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(128, 0, 128, 0.5);
+        }
+
+        .submit-button {
+            margin-top: 20px;
+        }
   .italic {
     font-style: italic;
   }
@@ -34,49 +86,43 @@
     </style>
 </head>
 <body>
+    @include("navbar")
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg">
-                <h1>Select a Country:</h1>
-                <select id="countries">
-                    @foreach ($countries ?? [] as $countryId => $countryName)
-                        <option value="{{ $countryId }}">{{ $countryName }}</option>
-                    @endforeach
-                </select>
+
+    <div class="container" style="margin-bottom:220px">
+        <div style="display:flex;justify-content:center;align-items:center">
+        <div class="video-container" style="position: absolute">
+            <video autoplay muted loop id="my-downloads">
+                <source src="images/buffallov.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"> 
+                <div class="submit-button">
+                    <button type="submit" class="btn btn-success"><a href="/book">Book Now</a></button>
+                </div>
             </div>
-            <div class="col-lg">
-                <h1>Select a County:</h1>
-                <select id="counties">
-                    <option value="">Select County</option>
-                </select>
+        </div>
+        <div style="background-color: black; width:480px; height:200px; position:relative; opacity:0.5; color:white;text-align:center; align-items:center; display:flex;padding:20px; margin-bottom:-40px; border:0.5rem soliid; border-radius:3rem ">
+            <div><h1>Miwamu Tourism Management</h1>
+                <h3 style="color: violet">PLAN YOUR VISIT</h3>
+                <button type="submit" class="btn " style="color: white;background-color:black"><a href="/book">Book Now</a></button>
             </div>
+        </div>
         </div>
     </div>
 
-
-    @include ("navbar")
-
-
-<div class="container">
-    <div class="image-container">
-        <img src="/images/thika0.png" alt="Images" class="img-fluid">
-        <div class="overlay">
-            <div class="text">
-                <h1>Miwamu Tourism Management</h1>
-                <h2 style="font-family: 'Lucida Handwriting', cursive; font-size: 24px; color:white; text-shadow: 2px 2px 4px rgba(128, 0, 128, 0.5);">PLAN YOUR VISIT</h2>            </div>
-            <div class="submit-button">
-                <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
-            </div>
-
-
-</div><br><br><br>
-</div>
-
-
-           
-   
+    <div class="content" >
+        <a>
+            <button id="b1" style="margin: 24px;" type="button" class="btn btn-outline-light">Miwamu Tourism Management</button>
+        </a>
+        <a>
+            <button id="b1" style="margin: 24px;" type="button" class="btn btn-outline-light">PLAN YOUR VISIT</button>
+        </a>
+        <a href="/book">
+            <button id="b1" style="margin: 24px;" type="button" class="btn btn-outline-light">Book Now</button>
+        </a>
+    </div>
+      
 
     <div class="container">
         <div class="row">
@@ -99,7 +145,7 @@
         </div>
     </div>
 
-    <div>
+    <div class="container">
         <h1 style="text-align: center">
             People also ask about Kenya
         </h1>
@@ -206,32 +252,53 @@
 </script>
 
 
+<script src="{{asset('js/jquery.js')}}"></script>
 <script>
-    // Original script for populating counties dropdown
-    $('#countries').on('change', function() {
-        var countryId = $(this).val();
-        $('#counties').empty();
 
-        if (countryId) {
-            $.ajax({
-                url: '/getStates/' + countryId,
-                type: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    if (data.counties) {
-                        $.each(data.counties, function(key, value) {
-                            $('#counties').append($('<option>', {
-                                value: value.counties_id,
-                                text: value.counties_name
-                            }));
-                        });
-                    }
-                }
-            });
+    $(document).ready(function(){
+     $('#country').on('change',function(){
+         var country_id= $(this).val();
+         if (country_id) {
+          $.ajax({
+             url: "{{url('/getCounties')}}/"+country_id,
+           type: "GET",
+           dataType: "json",
+           success: function(html){
+             console.log(html.counties);
+             $('select[name="counties_id"]').empty();
+             $.each(html.counties,function(i, counties){
+               console.log(counties.counties);
+                 $('select[name="counties_id"]').append('<option value="'+counties.state_id+'">'+counties.counties_name+'</option>');
+             });
+           }
+          });
+         }else {
+              $('select[name="counties_id"]').empty();
         }
     });
+    //   $('#state').on('change',function(){
+    //      var state_id= $(this).val();
+    //      if (state_id) {
+    //       $.ajax({
+    //          url: "{{url('/getCities')}}/"+state_id,
+    //        type: "GET",
+    //        dataType: "json",
+    //        success: function(html){
+    //          console.log(html.cities);
+    //          $('select[name="park_id"]').empty();
+    //          $.each(html.cities,function(i, cities){
+    //            console.log(cities.park_id);
+    //              $('select[name="park_id"]').append('<option value="'+cities.park_id+'">'+cities.park_name+'</option>');
+    //          });
+    //        }
+    //       });
+    //      }else {
+    //           $('select[name="park_id"]').empty();
+    //     }
+    // });
+   });
 </script>
-
+</script>
 
 
 
@@ -255,7 +322,7 @@
         </div>
         <div class="col-lg-4">
           <h4>Address</h4>
-          <p>123 Park Street, City</p>
+          <p>123 Park Street, park</p>
           <p>Kenya, +254</p>
         </div>
       </div>

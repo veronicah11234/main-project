@@ -14,6 +14,12 @@
             object-fit: cover;
             object-position: center;
         }
+        body {
+                font-family: Arial, sans-serif;
+                background-color: #f8f8f8;
+                margin: 0;
+                padding: 0;
+        }
 
     </style>
 </head>
@@ -92,15 +98,17 @@
                             <p class="card-text">Great experience, 8 days of wonder. Am happy to have spend my charismas on a Safari. All parks are filled with wildlife, big and small, and you are guaranteed to see all of the Big 5 plus more. That’s why prefer multi day safaris.
                                 Read more about 8 Days, 7 Nights Safari – Lake Nakuru, Maasai Mara, Naivasha and Amboseli Park - https://www.viator.com/tours/Nairobi/8-Days-7-Nights-Lake-Nakuru-Maasai-Mara-Naivasha-and-Amboseli-National-Park/d5280-60186P27?mcid=56757</p>
                                 <div class="rating">
-                                    <p>8.3</p>
-                                    <p>245 reviews</p>
+                                    <p style="color:rgb(70, 131, 8)">8.3</p>
+                                    <p style="color:rgb(70, 131, 8)">245 reviews</p>
                                 </div>
                         </div>
                             <div class="card-prices">
                                 <p class="price">Price from</p>
-                                <p class="price">$ 1,160</p>
-                                <p class="price">per Adults</p>
-                                <button class="btn btn-success">Check availability</button>
+                                <p class="price" style="color:rgb(70, 131, 8)">$ 1,160</p>
+                                <p class="price" style="color:rgb(238, 46, 12)">per Adults</p>
+                                <div class="submit-button">
+                                    <button type="submit" class="btn btn-success"><a href="/park1">Check availability</a></button>
+                                </div>
                             </div>
                           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                         </div>
@@ -171,74 +179,18 @@
 
                                 Read more about 4 Days, 3 Nights Safari – Lake Nakuru and Maasai Mara Safari - https://www.viator.com/tours/Nairobi/4-Days-3-Nights-Lake-Nakuru-to-Maasai-Mara-Safari/d5280-60186P25?mcid=56757</p>
                                 <div class="rating">
-                                    <p>9.3</p>
-                                    <p>345 reviews</p>
+                                    <p style="color:rgb(70, 131, 8)">9.3</p>
+                                    <p style="color:rgb(70, 131, 8)">345 reviews</p>
                                 </div>
                         </div>
                             <div class="card-prices">
                                 <p class="price">Price from</p>
-                                <p class="price">$1,574.36</p>
-                                <p class="price">per person</p>
-                                <button class="btn btn-success">Check availability</button>
-                            </div>
-                          <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="filter-card">
-                    <h3>Filter by:</h3>
-                    <div class="filter-options">
-                        <label class="checkbox">
-                            <h4>Review score:</h2>
-                                <input type="checkbox" name="review" value="9">
-                            Superb: 9+
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="review" value="8">
-                            Very good: 8+
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="review" value="7">
-                            Good: 7+
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="review" value="6">
-                            Pleasant: 6+
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-10" >
-                <div class="card mb" style="width: 1000px; height:450px" >
-                    <div class="row g-0">
-                      <div class="col-md">
-                        <img src="/images/park4.png" class="img-fluid rounded-start" alt="..." style="height:450px; width:450px">
-                      </div>
-                      <div class="col-md">
-                        <div class="card-body">
-                         <div class="card-description">
-                            <h5 class="card-title">4X4 Lake Nakuru Day Trip Safari – & Optional Lake Naivasha Boat</h5>
-                            <p class="card-text">This is a full day excursion that takes you on a Safari adventure outside Nairobi visiting four attractions withing the Great Rift valley. Lake Nakuru gives you the opportunity to observe the world renowned flamingos as well search for other wildlife such as buffaloes, rhino, giraffes and baboons. Lake Nakuru is world famous also as a sanctuary for both black and white rhino. Besides that, more than 400 species of birds can be seen in the park.
-                                Read more about 4X4 Lake Nakuru Day Trip Safari – & Optional Lake Naivasha Boat - https://www.viator.com/tours/Rift-Valley-Province/Day-Trip-Lake-Nakuru-Park-with-optional-Naivasha-Boat-Tour-or-Menengai-Crater/d50980-60186P26?mcid=56757</p>
-                                <div class="rating">
-                                    <p>9.3</p>
-                                    <p>245 reviews</p>
-                                </div>
-                        </div>
-                            <div class="card-prices">
-                                <p class="price">Price from</p>
-                                <p class="price">$150.00</p>
-                                <p class="price">per person</p>
-                                <button class="btn btn-success">Check availability</button>
-                            </div>
+                                <p class="price" style="color:rgb(70, 131, 8)">$1,574.36</p>
+                                <p class="price" style="color:rgb(241, 73, 22)">per person</p>
+                                <div class="submit-button">
+                                    <button type="submit" class="btn btn-success"><a href="/park2">Check availability</a></button>
+                                </div>                           
+                             </div>
                           <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                         </div>
                       </div>

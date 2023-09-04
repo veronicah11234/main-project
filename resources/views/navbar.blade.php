@@ -98,9 +98,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/hotels">Hotels</a>
-                    </li>
+                   
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Nakuru
@@ -112,6 +110,17 @@
                     </li>
 
                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="nairobi" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Nairobi
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/nairobiparks">Parks</a></li>
+                            <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/mombasa" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Mombasa
                         </a>
@@ -120,28 +129,6 @@
                             <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
                         </ul>
                     </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/samburu" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Samburu
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/nakuru">Parks</a></li>
-                            <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/nairobi" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Nairobi
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/nakuru">Parks</a></li>
-                            <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
-                        </ul>
-                    </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/narok" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Narok
@@ -152,25 +139,8 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/aberdare" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Aberdare
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/nakuru">Parks</a></li>
-                            <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/kajiado" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Kajiado
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/nakuru">Parks</a></li>
-                            <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
-                        </ul>
-                    </li>
+                   
+                    
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/malindi" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -179,6 +149,16 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/nakuru">Parks</a></li>
                             <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hotels
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/nakuruhotels">Nakuru</a></li>
+                            <li><a class="dropdown-item" href="/nairobihotel">Nairobi</a></li>
                         </ul>
                     </li>
                 </ul>

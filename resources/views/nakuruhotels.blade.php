@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Hotel Page</title>
     <style>
         .image-container img {
@@ -150,7 +149,6 @@
     <!-- Add your CSS stylesheets here -->
 </head>
 <body>
-
     @include ("navbar")
 
     <div class="container" >
@@ -161,32 +159,7 @@
                 <div class="text">
                     <h1>Welcome to Our Hotel</h1><br>
                 </div>
-                <div class="form-group">
-                    <label for="check_in_date" style=" color:rgb(245, 245, 17);">Check-in Date:</label>
-                    <input type="date" id="check_in_date" name="check_in_date">
-                </div><br>
-                <div class="form-group">
-            <label for="check_out_date"  style=" color:rgb(245, 211, 17);">Check-out Date:</label>
-            <input type="date" id="check_out_date" name="check_out_date">
-        </div><br>
-
-        <div class="form-group">
-            <label for="adults"  style=" color:rgb(245, 245, 17);">Adults:</label>
-            <select id="adults" name="adults">
-                @for ($i = 1; $i <= 5; $i++)
-                    <option value="{{ $i }}">{{ $i }}</option>
-                @endfor
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="children"  style=" color:rgb(245, 245, 17);">Children:</label>
-            <select id="children" name="children">
-                @for ($i = 0; $i <= 5; $i++)
-                    <option value="{{ $i }}">{{ $i }}</option>
-                @endfor
-            </select>
-        </div>
+                
                 <div class="submit-button">
                     <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
                 </div>
@@ -198,6 +171,32 @@
                 <div class="col-sm-2">
                     <div class="filter-card">
                         <h3>Filter by:</h3>
+                        <div class="form-group">
+                            <label for="check_in_date">Check-in Date:</label>
+                            <input type="date" id="check_in_date" name="check_in_date">
+                        </div><br>
+                        <div class="form-group">
+                    <label for="check_out_date">Check-out Date:</label>
+                    <input type="date" id="check_out_date" name="check_out_date">
+                </div><br>
+        
+                <div class="form-group">
+                    <label for="adults">Adults:</label>
+                    <select id="adults" name="adults">
+                        @for ($i = 1; $i <= 5; $i++)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="children">Children:</label>
+                    <select id="children" name="children">
+                        @for ($i = 0; $i <= 5; $i++)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                    </select>
+                </div>
                         <div class="filter-options">
                             <label class="checkbox">
                                 <h4>Star rating:</h2>
@@ -255,14 +254,14 @@
                                 <p class="card-text">Featuring a terrace, Sarova Woodlands Hotel and Spa is situated in Nakuru, 2.9 km from Westside Mall.
                                     The staff were friendly, good services and the hotel was super clean.</p>
                                     <div class="rating">
-                                        <p>8.3</p>
-                                        <p>245 reviews</p>
+                                        <p style="color:rgb(70, 131, 8)">8.3</p>
+                                        <p style="color:rgb(70, 131, 8)">245 reviews</p>
                                     </div>
                             </div>
                                 <div class="card-prices">
                                     <p class="price">Price from</p>
-                                    <p class="price">KES 20,134</p>
-                                    <p class="price">per night</p>
+                                    <p class="price" style="color:rgb(70, 131, 8)">KES 20,134</p>
+                                    <p class="price" style="color:rgb(241, 29, 14)">per night</p>
                                     <button class="btn btn-success">Check availability</button>
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
@@ -277,6 +276,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="check_in_date">Check-in Date:</label>
+                        <input type="date" id="check_in_date" name="check_in_date">
+                    </div><br>
+                    <div class="form-group">
+                <label for="check_out_date">Check-out Date:</label>
+                <input type="date" id="check_out_date" name="check_out_date">
+            </div><br>
+    
+            <div class="form-group">
+                <label for="adults">Adults:</label>
+                <select id="adults" name="adults">
+                    @for ($i = 1; $i <= 5; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="children">Children:</label>
+                <select id="children" name="children">
+                    @for ($i = 0; $i <= 5; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
                     <div class="filter-card">
                         <div class="filter-options">
                             <label class="checkbox">
@@ -335,14 +360,14 @@
                                 <p class="card-text">Located in Nakuru, 13 km from Lake Nakuru National Park, 
                                     Legacy Hotel and Suites provides accommodation with a fitness centre, free private parking, a shared lounge and a restaurant.</p>
                                     <div class="rating">
-                                        <p>9.3</p>
-                                        <p>345 reviews</p>
+                                        <p style="color:rgb(70, 131, 8)">9.3</p>
+                                        <p style="color:rgb(70, 131, 8)">345 reviews</p>
                                     </div>
                             </div>
                                 <div class="card-prices">
                                     <p class="price">Price from</p>
-                                    <p class="price">KES 25,530</p>
-                                    <p class="price">per night</p>
+                                    <p class="price" style="color:rgb(70, 131, 8)">KES 25,530</p>
+                                    <p class="price" style="color:rgb(236, 26, 19)">per night</p>
                                     <button class="btn btn-success">Check availability</button>
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
@@ -357,6 +382,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="check_in_date">Check-in Date:</label>
+                        <input type="date" id="check_in_date" name="check_in_date">
+                    </div><br>
+                    <div class="form-group">
+                <label for="check_out_date">Check-out Date:</label>
+                <input type="date" id="check_out_date" name="check_out_date">
+            </div><br>
+    
+            <div class="form-group">
+                <label for="adults">Adults:</label>
+                <select id="adults" name="adults">
+                    @for ($i = 1; $i <= 5; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="children">Children:</label>
+                <select id="children" name="children">
+                    @for ($i = 0; $i <= 5; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
                     <div class="filter-card">
                         <h3>Filter by:</h3>
                         <div class="filter-options">
@@ -394,14 +445,14 @@
                                 <p class="card-text">Very good</p>
                                 <p class="card-text">Situated in Nakuru, 19 km from Lake Elementaita, Luna hotel features accommodation with an outdoor swimming pool, free private parking, a terrace and a bar.</p>
                                     <div class="rating">
-                                        <p>9.3</p>
-                                        <p>245 reviews</p>
+                                        <p style="color:rgb(70, 131, 8)">9.3</p>
+                                        <p style="color:rgb(70, 131, 8)">245 reviews</p>
                                     </div>
                             </div>
                                 <div class="card-prices">
                                     <p class="price">Price from</p>
-                                    <p class="price">KES 30,530</p>
-                                    <p class="price">per night</p>
+                                    <p class="price" style="color:rgb(70, 131, 8)">KES 30,530</p>
+                                    <p class="price" style="color:rgb(238, 26, 18)">per night</p>
                                     <button class="btn btn-success">Check availability</button>
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>

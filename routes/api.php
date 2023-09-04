@@ -57,5 +57,6 @@ Route::apiResource('users',AdminController::class);
 Route::get('/hotels', [HotelController::class, 'index']);
 Route::get('/book', [HotelController::class, 'index']);
 Route::get('/parks', [ParkController::class, 'index']);
+Route::get('/getCounties/{id}','MainController@getcounties');
 
 

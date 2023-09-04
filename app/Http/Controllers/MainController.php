@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Country;
-use App\counties;
+use App\county;
 use App\City;
 
 class MainController extends Controller

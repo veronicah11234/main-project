@@ -15,7 +15,8 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
-     *
+          * @return bool
+
      * @var array<int, string>
      */
     protected $fillable = [
@@ -67,7 +68,10 @@ class User extends Authenticatable
         return $this->roles->pluck('name')->contains($roles);
     }
     
-
-    // Rest of the code...
-    
+            
+    public function isAdmin()
+    {
+        // Replace this with your logic to check if the user has admin role
+        return $this->role === 'admin';
+    }    
 }
