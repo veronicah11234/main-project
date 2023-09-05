@@ -18,7 +18,7 @@
     <h1 class="text-center mt-5">Booking Page</h1>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form>
+            <form action="{{ route('booking.store') }}" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" placeholder="Enter your username">

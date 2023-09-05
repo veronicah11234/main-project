@@ -9,11 +9,11 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email', 'phone', 'date', 'time', 'message'];
-
-
-      public function destination()
-    {
-        return $this->belongsTo(Destination::class);
-    }
+    protected $fillable = ['username', 'email', 'phone', 'date', 'time', 'message'];
 }
+
+//       public function destination()
+//     {
+//         return $this->belongsTo(Destination::class);
+//     }
+// }

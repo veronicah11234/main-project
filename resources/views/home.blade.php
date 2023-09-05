@@ -31,6 +31,27 @@
     align-items: center;
     background-color: black; /* Optional background color */
 }
+.nav-item {
+        margin: 0 10px;
+    }
+    
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        color: #f39c12;
+    }
+    
+    #whatsapp-link {
+        color: #25D366;
+    }
+    
+    #whatsapp-link i {
+        margin-right: 5px;
+    }
 
 /* Style the video to cover the container */
 video {
@@ -312,13 +333,33 @@ video {
         </div>
         <div class="col-lg-4">
           <h4>Follow Us</h4>
-          <div class="social-icons">
-                    <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a><br>
-                    <a href="https://www.google.com"><i class="fab fa-google"></i></a><br>
-                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a><br>
-                    <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a><br>
-                    <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+          <nav class="navbar">
+            <div class="container">
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav">
+                        <!-- Social Media Icons -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.tiktok.com"><i class="fab fa-tiktok"></i></a>
+                        </li>
+                        <!-- WhatsApp Chat Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://web.whatsapp.com/" target="_blank" id="whatsapp-link">
+                                <i class="fab fa-whatsapp"></i> Chat with us
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+        </nav>
         </div>
         <div class="col-lg-4">
           <h4>Address</h4>

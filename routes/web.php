@@ -117,8 +117,8 @@ Route::get('/signup', function () {
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 Route::get('/login', [AuthController::class, 'loginPage'])->name('loginPage');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
-Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
-Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
+Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
 // Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
 // Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
 Route::get('/parks', [ParkController::class, 'index'])->name('parks.index');

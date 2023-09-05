@@ -28,9 +28,7 @@ Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 Route::post('/verify-email', [AuthController::class, 'verifyEmail']);
 
-Route::post('/bookings', [BookingController::class, 'store']);
-
-
+Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
 
 Route::group(['middleware' => ['auth:sanctum', 'role:user']], function(){
     Route::get('/dashboard/profile', [ProfileController::class, 'index'])->name('dashboard.profile');
