@@ -66,7 +66,7 @@
         }
         /* Add your custom styles here */
         .dropdown-menu {
-            background-color: #343a40;
+            background-color: #0b4e91;
         }
 
         .dropdown-item {
@@ -84,7 +84,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="/images/Free.jpg" alt="Logo" height="80" width="90">
+                <img src="/images/preview.png" alt="Logo" height="80" width="200">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -115,7 +115,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/nairobiparks">Parks</a></li>
-                            <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
+                            <li><a class="dropdown-item" href="/nairobisafaris">Safaris</a></li>
                         </ul>
                     </li>
 
@@ -126,9 +126,11 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/nakuru">Parks</a></li>
-                            <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
+                            <li><a class="dropdown-item" href="/mombasasafaris">Safaris</a></li>
                         </ul>
                     </li>
+
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/narok" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Narok
@@ -165,10 +167,6 @@
             </div>
         </div>
     </nav>
-
-    
-
-    <!-- Rest of your HTML content -->
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
 </body>

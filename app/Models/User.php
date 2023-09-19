@@ -3,32 +3,33 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Role;
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
-          * @return bool
-
-     * @var array<int, string>
+     *
+     * @var array
      */
     protected $fillable = [
         'username',
         'email',
         'password',
+        'role', // Add the 'role' field
+        'permissions', // Add the 'permissions' field
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $hidden = [
         'password',
@@ -38,40 +39,28 @@ class User extends Authenticatable
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        // 'password' => 'hashed',
+        'permissions' => 'json', // Cast 'permissions' as JSON
     ];
 
     /**
      * The attributes that should be mutated to dates.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $dates = ['deleted_at'];
-
-    public function hasRole($role){
-        return $this->roles->contains('name', $role);
-    }
-
-    public function roles(){
-        return $this->belongsToMany(Role::class);
-    }
-    public function hasAnyRole($roles)
-    {
-        if (is_array($roles)) {
-            return $this->roles->pluck('name')->intersect($roles)->count() > 0;
-        }
-
-        return $this->roles->pluck('name')->contains($roles);
-    }
     
-            
-    public function isAdmin()
-    {
-        // Replace this with your logic to check if the user has admin role
-        return $this->role === 'admin';
-    }    
+    public function hasRole($role)
+{
+    return $this->roles->contains('username', $role);
 }
+
+public function roles()
+{
+    return $this->belongsToMany(Role::class);
+}
+}
+

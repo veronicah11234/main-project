@@ -4,231 +4,109 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
     <title>
-        <img src="images/Free.jpg"alt="">
+        {{-- <img src="images/Free.jpg" alt=""> --}}
     </title>
 
     <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-    }
-    
-    .video-background {
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .video-container {
+    width: 100vw;
+    height: 170vh;
+    display: flex;
+    position: relative;
+    margin-top: 640px
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* background-color: black; Optional background color */
+} /* background-color: black; Optional background color */
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+        /* Navbar styles */
+        .custom-navbar {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
+            z-index: 1000; /* Ensure the navbar appears above the video */
         }
 
-        /* Apply styles to the video */
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .custom-navbar .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center; /* Vertically center the navigation links */
         }
 
-        /* Apply text overlay */
-        .video-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .custom-navbar .navbar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Display the navigation links as flex items */
+        }
+
+        .custom-navbar .nav-item {
+            margin-right: 20px;
+        }
+
+        .custom-navbar .nav-link {
             color: white;
-            font-size: 24px;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
         }
 
-        /* Show the overlay on hover */
-        .video-background:hover .video-overlay {
-            opacity: 1;
-        }
-    
-    .navbar {
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 20px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-    }
-    
-    .navbar-nav {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-    }
-    .header-text {
-    text-align: center;
-    margin-top: 150px;
-    color: white;
-}
-
-.company-name {
-    font-size: 36px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-    
-    .nav-item {
-        margin: 0 10px;
-    }
-    
-    .nav-link {
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    
-    .nav-link:hover {
-        color: #f39c12;
-    }
-    
-    #whatsapp-link {
-        color: #25D366;
-    }
-    
-    #whatsapp-link i {
-        margin-right: 5px;
-    }
-
-        /* Responsive styles for mobile phones */
-        @media only screen and (max-width: 767px) {
-            .content {
-                padding-left: 60px;
-                padding-bottom: 100px;
-            }
+        .custom-navbar .nav-link:hover {
+            color: #f39c12;
         }
 
-        /* Responsive styles for tablets and small desktops */
-        @media only screen and (min-width: 768px) and (max-width: 991px) {
-            .content, .loader {
-                padding-left: 100px;
-                padding-bottom: 100px;
-            }
+        #whatsapp-link {
+            color: #25D366;
         }
 
-        /* Responsive styles for medium and large desktops */
-        @media only screen and (min-width: 992px) {
-            .content, .loader {
-                padding-left: 140px;
-                padding-bottom: 200px;
-            }
+        #whatsapp-link i {
+            margin-right: 5px;
         }
-         /* Responsive styles for medium and large desktops */
-         @media only screen and (min-width: 1499px) {
-            .content, .loader {
-                padding-left: 240px;
-                padding-bottom: 300px;
-            }
-        }
-        
-        /*#myVideo {*/
-            display: none; /* Hide the video initially */
-            opacity: 0; /* Set initial opacity to 0 */
-            transition: opacity 1s ease; /* Add transition effect */
-            border-radius: 50%; /* Make the logo slightly rounded */
-}
-        /*}*/
-        
-        /*#myVideo.show {*/
-            opacity: 1; /* Set opacity to 1 when the video is shown */
-        /*}*/
+    
 
-        .logo-container {
-    width: 50px; /* Adjust the width as needed */
-    height: 100px; /* Automatically adjust the height */
-    border-radius: 50%; /* Make the logo container slightly rounded */
-    border: 2px solid #f39c12; /* Add a border around the logo container */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
-    transition: transform 0.3s ease; /* Add a smooth transition effect */
-}
-
-/* Apply a scale effect on hover */
-
-
-/* Style for the logo image */
-.logo {
-    width: 200px; /* Make the logo image fill the container */
-    height: 200px; /* Make the logo image fill the container */
-    border-radius: 50%; /* Make the logo slightly rounded */
-}
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  
+    <nav class="custom-navbar" id="mainNav">
         <div class="container">
-            <div class="logo-container">
-                <a class="navbar-brand js-scroll-trigger" href="/">
-                    <img src="/images/Free.jpg" alt="Logo" class="logo">
-                        "MIWAMU TOURISM MANAGEMENT"
-                </a>
-                <!-- Your logo content here -->
-            </div>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item">
-                        <div class="video-background">
-                            <video autoplay muted loop>
-                                <source src="your-video-url.mp4" type="video/mp4"> <!-- Replace with your video URL -->
-                            </video>
-                            <div class="video-overlay">
-                                WELCOME TO VIEW THE NATION
-                            </div>
-                        </div><br>
-                    
-                        
-                        <nav class="navbar">
-                            <div class="container">
-                                <div class="navbar-collapse">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link js-scroll-trigger" href="/home">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link js-scroll-trigger" href="/about">About</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link js-scroll-trigger" href="/contact">Contact</a>
-                                        </li>
-                                        <!-- Social Media Icons -->
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="https://www.tiktok.com"><i class="fab fa-tiktok"></i></a>
-                                        </li>
-                                        <!-- WhatsApp Chat Link -->
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="https://web.whatsapp.com/" target="_blank" id="whatsapp-link">
-                                                <i class="fab fa-whatsapp"></i> Chat with us
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-    <video autoplay muted loop id="my downloads">
-        <source src="images/cheetahv.mp4" type="video/mp4">
-    </video>
+            <ul class="navbar-nav text-uppercase">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-bottom:220px">
+        <div style="display:flex;justify-content:center;align-items:center">
+        <div class="video-container" style="position: absolute">
+            <video autoplay muted loop id="my-downloads">
+                <source src="images/cheetahv.mp4" type="video/mp4">
+            </video>
+            {{-- <div class="overlay"> 
+                <div class="submit-button">
+                    <button type="submit" class="btn btn-success"><a href="/book">Book Now</a></button>
+                </div>
+            </div> --}}
+        </div>
     <script>
         // Wait for the video to load
         document.getElementById('myVideo').addEventListener('loadeddata', function() {

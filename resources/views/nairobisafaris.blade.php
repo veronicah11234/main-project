@@ -23,6 +23,9 @@
         .card-body .col-sm-4 img:hover {
           transform: scale(1.1); /* Increase the scale to make the image appear larger on hover */
         }
+        h1{
+          font: 1em sans-serif;
+        }
 
     </style>
 </head>
@@ -34,15 +37,16 @@
         <img src="/images/nukurupark3.jpg" alt="Images" class="img-fluid">
         <div class="overlay">
             <div class="text">
-                <h1>NAIROBI SAFARIS: EXPERIENCE ONE FOR YOURSELF</h1>
+                <h1>NAIROBI SAFARIS</h1>
             </div>
             <div class="submit-button">
                 <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
             </div>
         </div>
-    </div><br><br><br>
+    </div><br>
+    <h1>NAIROBI SAFARIS: EXPERIENCE ONE FOR YOURSELF</h1>
 
-    <img src="/images/sss.png" alt="Images" class="img-fluid">
+    {{-- <img src="/images/sss.png" alt="Images" class="img-fluid"> --}}
 
     <div class="container">
         <div class="row">

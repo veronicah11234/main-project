@@ -34,7 +34,7 @@
         <img src="/images/nukurupark3.jpg" alt="Images" class="img-fluid">
         <div class="overlay">
             <div class="text">
-                <h1>NAKURU NATIONAL PARK</h1>
+                <h1>NAKURU NATIONAL SAFARIS</h1>
             </div>
             <div class="submit-button">
                 <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>

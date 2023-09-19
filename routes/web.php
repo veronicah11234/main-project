@@ -6,14 +6,15 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ParkController;
 use App\Http\Controllers\TourController;
-
 use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CountyController;
 use App\Http\Controllers\API\BookingController;
 use App\Http\Controllers\CountySeederController;
+use App\Models\User; // Make sure to use the correct namespace
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-Route::get('/login', function () {
-    return view('login');
-});
+
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
 Route::get('/home', function () {
     return view('home');
@@ -64,6 +66,12 @@ Route::get('/nakuruhotels', function () {
 });
 Route::get('/nakurusafaris', function () {
     return view('nakurusafaris');
+});
+Route::get('/nairobisafaris', function () {
+    return view('nairobisafaris');
+});
+Route::get('/mombasasafaris', function () {
+    return view('mombasasafaris');
 });
 Route::get('/nairobihotel', function () {
     return view('nairobihotel');
@@ -114,13 +122,26 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
+Route::get('/admin/edit', function () {
+    return view('admin/edit');
+});
+
+Route::get('/admin/users/edit', function () {
+    return view('admin/users/edit');
+
+});Route::get('/admin/users/usermanager', function () {
+    return view('admin/users/usermanager');
+});
+
+
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
-Route::get('/login', [AuthController::class, 'loginPage'])->name('loginPage');
+Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
 Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
-// Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
-// Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
+
+Route::get('/hotels', 'HotelController@index')->name('hotels.index');
+Route::get('/hotels/{id}', 'HotelController@show')->name('hotels.show');
 Route::get('/parks', [ParkController::class, 'index'])->name('parks.index');
 Route::get('/parks/{id}', [ParkController::class, 'show'])->name('parks.show');
 Route::get('/getCounties/{id}','MainController@getcounties');
@@ -128,12 +149,28 @@ Route::get('/getCounties/{id}','MainController@getcounties');
 // Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 
-
+Route::middleware(['auth','verified'])->group(function(){
+    Route::get('/profile', [ProfileController::class,'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class,'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class,'destroy'])->name('profile.destroy');
+});
 
 Route::get('verify-email/{token}', [AuthController::class, 'verifyEmail'])->name('verify.email');
 require __DIR__.'/auth.php';
+Route ::get('/email/verify', function(){
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request){
+    $request->fulfill();
+    return redirect('/profile');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
 
+Route::get('/email/verification-notification', function(Request $request){
+    $request->user()->sendEmailVerification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 // routes/web.php
 
 Route::get('/', function () {
@@ -149,48 +186,55 @@ Route::get('/book', function () {
     return view('book');
 })->name('book');
 
-Route::get('/users', function () {
-    return view('users');
-})->name('users');
-Route::get('/tours', [TourController::class, 'index'])->name('tours');
-// Route::get('/admin', [AdminController::class,'index'])->name('admin');
+Route::get('/payment/index', function () {
+    return view('payment/index');
+})->name('book');
 
-// Route::get('/tours', 'TourController@index')->name('tours.index');
-// Route::get('/tours/create', 'TourController@create')->name('tours.create');
-// Route::post('/tours', 'TourController@store')->name('tours.store');
-// Route::get('/tours/{id}', 'TourController@show')->name('tours.show');
-// Route::get('/tours/{id}/edit', 'TourController@edit')->name('tours.edit');
-// Route::put('/tours/{id}', 'TourController@update')->name('tours.update');
-// Route::delete('/tours/{id}', 'TourController@destroy')->name('tours.destroy');
+Route::get('/admin/users', function () {
+    return view('admin/users');
+})->name('users');
+
+
+Route::get('profile', function () {
+    $user = User::find(1); // Replace with the logic to fetch the user you want to display
+    return view('admin.profile', compact('user'));
+})->name('profile');
+
+
+Route::get('/tours', [TourController::class, 'index'])->name('tours');
+
+
+Route::get('/tours/create', [TourController::class, 'create'])->name('tours.create');
+Route::post('/tours', [TourController::class, 'store'])->name('tours.store');
+
+Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
+Route::get('/tours/{tour}', [TourController::class, 'show'])->name('tours.show');
+Route::get('/tours/{tour}/edit', [TourController::class, 'edit'])->name('tours.edit');
+Route::put('/tours/{tour}', [TourController::class, 'update'])->name('tours.update');
+Route::delete('/tours/{tour}', [TourController::class, 'destroy'])->name('tours.destroy');
 
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-    Route::resource('countries', CountryController::class); // Example country routes
+    Route::get('/admin', 'AdminController@index')->name('admin.index');
     // Route::resource('countries', CountryController::class); // Example country routes
-    Route::resource('counties', CountyController::class);   // Example county routes
     Route::resource('parks', ParkController::class);    
-    Route::get('/counties', [CountyController::class, 'admin'])->name('counties.admin');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-    Route::post('/counties', [AdminController::class, 'admin'])->name('admin');
-    // Route::get('countries', [AdminController::class, 'countriesIndex'])->name('admin.countries.index');    // Example park routes
-    // Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-    // Route::get('countries', [AdminController::class, 'countiesIndex'])->name('admin.counties.index');   
+    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
+Route::get('/admin/users/{user}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
+Route::put('/admin/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
+Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy'); 
+Route::get('/profile', 'ProfileController@show')->name('profile.show');
+Route::patch('/profile/update', 'ProfileController@update')->name('profile.update');
+
 });
-
-// Route::group(['middleware' => ['auth:sanctum', 'role:manager']], function(){
-//     Route::get('/manager/dashboard/profile', [ManagerProfileController::class, 'index'])->name('manager.dashboard.profile');
-//     Route::post('/logout', [AuthController::class, 'logout']);});
-
+Route::get('/users', 'UserController@index')->name('users.index');
+Route::get('/admin/users/view/{id}', 'AdminController@viewUser')->name('admin.users.view');
+Route::get('/admin/users/edit/{id}', 'AdminController@editUser')->name('admin.users.edit');
+Route::put('/admin/users/update/{id}', 'AdminController@updateUser')->name('admin.users.update');
+Route::get('/admin', 'AdminController@dashboard')->name('admin.dashboard');
 
  Route::post('/users', [UserController::class, 'create']);
 Route::put('/users/{id}/role', [UserController::class, 'assignRole']);
 Route::get('/users/{id}', [UserController::class, 'getUser']);
 
-// Route::group(['middleware' => 'auth:sanctum'], function(){
-//     Route::apiResource('profile', ProfileController::class);
-// });
-
-
-// Route::apiResource('users',AdminController::class);
 
 

@@ -6,27 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateToursTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('price');
-            $table->string('availability');
+            $table->decimal('price', 8, 2); // Adjust the precision and scale as needed
+            $table->enum('availability', ['Available', 'Sold Out']);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('tours');

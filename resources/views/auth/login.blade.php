@@ -1,5 +1,58 @@
 <x-guest-layout>
     <x-auth-card>
+        <style>
+            /* Your custom styles */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                margin: 0;
+                padding: 0;
+            }
+
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                color: #333;
+            }
+
+            form {
+                max-width: 400px;
+                margin: 30px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                margin-bottom: 15px;
+            }
+
+            button {
+                background-color: #4CAF50;
+                color: #fff;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 3px;
+                font-size: 16px;
+                cursor: pointer;
+                width: 100%;
+            }
+        </style>
+
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -32,7 +85,7 @@
                     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
-            </div>
+            </div><br>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
@@ -40,10 +93,11 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
+                <br><br>
 
-                <x-button class="ml-3">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-3">
                     {{ __('Log in') }}
-                </x-button>
+                </button>
             </div>
         </form>
     </x-auth-card>

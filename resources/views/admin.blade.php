@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <!-- Meta tags, stylesheets, and other head elements -->
@@ -13,7 +13,7 @@
             @yield('content')
         </div> --}}
     {{-- </div> --}}
-    <table>
+    {{-- <table>
         <thead>
             ADD PACKAGES
         </thead>
@@ -26,5 +26,5 @@
             </td>
         </tr>
     </table>
-</body>
-</html>
+</body> --}}
+</html> 

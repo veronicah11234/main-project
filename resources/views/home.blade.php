@@ -64,7 +64,7 @@ video {
             position: relative;
             width: 100%;
             height: 400px; /* Adjust the height as needed */
-        } */
+        /* } */ */
 
         video {
             width: 100%;
@@ -101,13 +101,20 @@ video {
   }
 
   .fancy {
-    text-shadow: 2px 2px 4px rgba(128, 0, 128, 0.5);
+    text-shadow: 1px 1px 1px rgba(128, 0, 128, 0.5);
   }
+  .navbar {
+    z-index: 200; Use a value higher than the video container's z-index
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    right: 0;
+}
 
     </style>
 </head>
 <body>
-    @include("navbar")
+    @include("navbar")<br><br>
 
 
 
@@ -238,90 +245,16 @@ video {
     </ol>
 
 
-    {{-- <h2>
-        When is the best time to visit</h2>
-        <p>
-            Kenya experiences only two kinds of weather throughout the year that is a wet season and a dry season. The best time to visit Kenya would be:
-        </p>
-         --}}
+    
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#countries').change(function() {
-            var countryId = $(this).val();
-            if (countryId) {
-                $.ajax({
-                    url: '/getcounties/' + countryId,
-                    type: 'GET',
-                    success: function(response) {
-                        var options = '<option value="">Select County</option>';
-                        response.forEach(function(county) {
-                            options += '<option value="' + county.id + '">' + county.name + '</option>';
-                        });
-                        $('#counties').html(options);
-                    }
-                });
-            } else {
-                $('#counties').html('<option value="">Select County</option>');
-            }
-        });
-    });
-</script>
+
 
 
 <script src="{{asset('js/jquery.js')}}"></script>
-<script>
-
-    $(document).ready(function(){
-     $('#country').on('change',function(){
-         var country_id= $(this).val();
-         if (country_id) {
-          $.ajax({
-             url: "{{url('/getCounties')}}/"+country_id,
-           type: "GET",
-           dataType: "json",
-           success: function(html){
-             console.log(html.counties);
-             $('select[name="counties_id"]').empty();
-             $.each(html.counties,function(i, counties){
-               console.log(counties.counties);
-                 $('select[name="counties_id"]').append('<option value="'+counties.state_id+'">'+counties.counties_name+'</option>');
-             });
-           }
-          });
-         }else {
-              $('select[name="counties_id"]').empty();
-        }
-    });
-    //   $('#state').on('change',function(){
-    //      var state_id= $(this).val();
-    //      if (state_id) {
-    //       $.ajax({
-    //          url: "{{url('/getCities')}}/"+state_id,
-    //        type: "GET",
-    //        dataType: "json",
-    //        success: function(html){
-    //          console.log(html.cities);
-    //          $('select[name="park_id"]').empty();
-    //          $.each(html.cities,function(i, cities){
-    //            console.log(cities.park_id);
-    //              $('select[name="park_id"]').append('<option value="'+cities.park_id+'">'+cities.park_name+'</option>');
-    //          });
-    //        }
-    //       });
-    //      }else {
-    //           $('select[name="park_id"]').empty();
-    //     }
-    // });
-   });
-</script>
-</script>
-
-
 
 <footer class="bg-dark text-white py-4">
     <div class="container">

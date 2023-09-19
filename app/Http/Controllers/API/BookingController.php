@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use App\Models\Booking; // Import the Booking model
+use App\Http\Controllers\Controller;
+use App\Models\Booking;
 
 class BookingController extends Controller
 {
@@ -20,7 +21,7 @@ class BookingController extends Controller
             'email' => 'required|email',
             'phone' => 'required|string',
             'date' => 'required|date',
-            'time' => 'required|time',
+            'time' => 'required|date_format:H:i',
             'message' => 'nullable|string',
         ]);
 

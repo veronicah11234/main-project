@@ -1,8 +1,7 @@
-<?php 
+<?php
 
     namespace App\Http\Controllers;
 
-  
     use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
     use Illuminate\Foundation\Validation\ValidatesRequests;
     use Illuminate\Routing\Controller as BaseController;
@@ -14,9 +13,6 @@
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Log;
     use Illuminate\Support\Str;
-    use Illuminate\Support\Facades\Mail;
-    use App\Mail\VerificationEmail;
-
 
 
     class AuthController extends BaseController
@@ -25,55 +21,71 @@
     
         public function signup(Request $request)
         {
-            // Validation rules for signup form fields
-            $rules = [
-                'username' => 'required|string|unique:users',
-                'email' => 'required|email|unique:users',
-                'password' => 'required|min:6',
-            ];
+            try {
+                $validatedData = $request->validate([
+                    'username' => 'required',
+                    'email' => 'required|email',
+                    'password' => 'required|min:6',
+                ]);
         
-            $request->validate($rules);
+                $verificationToken = Str::random(10); // Generate a random verification token
+                $hashedToken = Hash::make($verificationToken); // Hash the token
         
-            // Create user record in the database
-            $user = User::create([
-                'username' => $request->input('username'),
-                'email' => $request->input('email'),
-                'password' => bcrypt($request->input('password')),
-                'verification_token' => Str::random(40), // Generate a random verification token
-            ]);
+                $user = new User();
+                $user->username = $validatedData['username'];
+                $user->email = $validatedData['email'];
+                $user->password = Hash::make($validatedData['password']);
+                $user->verification_token = $hashedToken; // Store the hashed token in the database
+                $user->verified = false;
+                $user->save();
         
-            // Send verification email
-            // Mail::to($user->email)->send(new VerificationEmail($user));
-        
-            return response()->json(['message' => 'Signup successful! Please check your email for verification.']);
+                return response()->json(['message' => 'Your email verification code is ' . $verificationToken], 200);
+            } catch (ValidationException $e) {
+                $errors = $e->validator->errors()->all();
+                return response()->json(['errors' => $errors], 422);
+            } catch (\Exception $e) {
+                $errorMessage = $e->getMessage(); // Get the specific error message
+                Log::error($errorMessage); // Log the error message for debugging purposes
+
+                return response()->json(['error' => $errorMessage], 500);
+            }
         }
         
-     
-        
-        
-        public function verifyEmail($token)
+
+
+        public function verifyEmail(Request $request): JsonResponse
         {
-            $user = User::where('verification_token', $token)->first();
-    
-            if (!$user) {
-                abort(404); // Or show an error page indicating invalid token
+            try {
+                $validatedData = $request->validate([
+                    'email' => 'required|email',
+                    'token' => 'required',
+                ], [
+                    'email.required' => 'Please enter an email address.',
+                    'email.email' => 'Please enter a valid email address.',
+                    'token.required' => 'Please enter a verification token.',
+                ]);
+
+                $user = User::where('email', $validatedData['email'])->first();
+
+                if (!$user || !Hash::check($validatedData['token'], $user->verification_token)) {
+                    return response()->json(['error' => 'Invalid email or verification token.'], 401);
+                }
+
+                $user->verification_token = null;
+                $user->verified = true;
+                $user->save();
+
+                return response()->json(['message' => 'Email verified successfully. You can now access your account.'], 200);
+            } catch (ValidationException $e) {
+                $errors = $e->validator->errors()->all();
+                return response()->json(['errors' => $errors], 422);
+            } catch (\Exception $e) {
+                return response()->json(['error' => 'An error occurred while verifying your email. Please try again.'], 500);
             }
-    
-            $user->update([
-                'verification_token' => null,
-                'email_verified_at' => now(),
-            ]);
-    
-            return redirect()->route('login')->with('message', 'Email verification successful! You can now log in.');
         }
-    
+        
 
-
-     public function loginPage()
-            {
-                return view('login');
-            }
-            public function login(Request $request)
+        public function login(Request $request): JsonResponse
         {
             try {
                 $validatedData = $request->validate([
@@ -85,29 +97,35 @@
                     'password.required' => 'Please enter a password.',
                 ]);
 
-                $credentials = $request->only('email', 'password');
+                $user = User::where('email', $validatedData['email'])->first();
 
-                if (Auth::attempt($credentials)) {
-                    $user = Auth::user();
-                    $is_admin = $user->hasRole('admin');
-                    $token = $user->createToken('auth-token')->plainTextToken;
-
-                    return response()->json(['token' => $token, 'user' => $user, 'is_admin' => $is_admin], 200);
-                } else {
+                if (!$user) {
+                    return response()->json(['error' => 'User not found.'], 404);
+                }
+                if (!$user->verified) {
+                    return response()->json(['error' => 'Please verify your email address first.'], 401);
+                }
+                if (!Hash::check($validatedData['password'], $user->password)) {
                     return response()->json(['error' => 'Invalid credentials.'], 401);
                 }
-            } catch (\Illuminate\Validation\ValidationException $e) {
+
+                $roles = $user->roles->pluck('name')->toArray();
+                $token = $user->createToken('auth-token')->plainTextToken;
+
+                return response()->json(['token' => $token, 'user' => $user, 'roles' => $roles, 'soft_deleted' => $user->trashed()], 200);
+
+                return response()->json(['token' => $token, 'user' => $user, '$roles' => $$roles], 200);
+
+            } catch (ValidationException $e) {
                 $errors = $e->validator->errors()->all();
                 return response()->json(['errors' => $errors], 422);
             } catch (\Exception $e) {
-                $errorMessage = $e->getMessage();
-                \Illuminate\Support\Facades\Log::error($errorMessage);
+                $errorMessage = $e->getMessage(); // Get the specific error message
+                Log::error($errorMessage); // Log the error message for debugging purposes
 
-                return response()->json(['error' => 'An error occurred while logging in. Please try again.'], 500);
+                return response()->json(['error' => $errorMessage], 500);
             }
-    }
-
-
+        }
        
 
         public function forgotPassword(Request $request): JsonResponse
@@ -207,10 +225,9 @@
         }
 
     
-    public function logout(): JsonResponse
+        public function logout(): JsonResponse
         {
             try {
-                
                 $user = Auth::user();
                 if ($user) {
                     $user->tokens()->delete();
@@ -219,8 +236,8 @@
             } catch (\Exception $e) {
                 $errorMessage = $e->getMessage(); // Get the specific error message
                 Log::error($errorMessage); // Log the error message for debugging purposes
-
+    
                 return response()->json(['error' => $errorMessage], 500);
             }
         }
-    } 
+    }

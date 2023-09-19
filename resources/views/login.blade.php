@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title>Login Page</title>
@@ -92,4 +92,4 @@
 
     <p>Don't have an account? <a href="{{ route('signup') }}">Sign up</a></p>
 </body>
-</html>
+</html> --}}

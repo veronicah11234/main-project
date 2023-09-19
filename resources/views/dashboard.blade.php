@@ -16,3 +16,22 @@
         </div>
     </div>
 </x-app-layout>
+ <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+     
+        <li class="nav-item {{ Request::is('tours') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('tours.index') }}">Tours</a>
+        </li>
+
+         {{-- //Check if the user has the 'admin' role before displaying the 'Bookings' link --}}
+         @if(Auth::user() && Auth::user()->hasRole('admin'))
+            <li class="nav-item {{ Request::is('book') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('book') }}">Bookings</a>
+            </li>
+        @endif
+
+        <li class="nav-item {{ Request::is('users') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('users') }}">Users</a>
+        </li>
+    </ul> 
+</div> 

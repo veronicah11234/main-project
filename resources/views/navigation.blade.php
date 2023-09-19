@@ -16,21 +16,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
+            {{-- <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
-            </li>
+            </li> --}}
             <li class="nav-item {{ Request::is('tours') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('tours') }}">Tours</a>
-            </li> 
-            <li class="nav-item {{ Request::is('admin') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin') }}">Admin</a>
-            </li>             
+                <a class="nav-link" href="{{ route('tours.index') }}">Tours</a>
+            </li>           
             <li class="nav-item {{ Request::is('book') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('book') }}">Bookings</a>
             </li>
-            <li class="nav-item {{ Request::is('users') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('users') }}">Users</a>
-            </li>
+            {{-- <li class="nav-item {{ Request::is('users') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('profile') }}">Users</a>
+            </li> --}}
         </ul>
     </div>
 </nav>

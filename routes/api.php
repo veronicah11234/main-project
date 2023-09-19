@@ -21,8 +21,8 @@ use App\Http\Controllers\manager\ProfileController as ManagerProfileController;
 |
 */
 
-Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+// Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+// Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('/reset-password', [AuthController::class, 'resetPassword']);
@@ -56,5 +56,3 @@ Route::get('/hotels', [HotelController::class, 'index']);
 Route::get('/book', [HotelController::class, 'index']);
 Route::get('/parks', [ParkController::class, 'index']);
 Route::get('/getCounties/{id}','MainController@getcounties');
-
-

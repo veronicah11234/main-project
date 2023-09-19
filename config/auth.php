@@ -63,6 +63,9 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+            'table' => 'users',
+            'remember_token_name' => 'remember_token',
+            'enabled' => true,
         ],
 
         // 'users' => [
