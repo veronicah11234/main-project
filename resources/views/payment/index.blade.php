@@ -15,13 +15,13 @@
         </thead>
         <tbody>
             @foreach ($payments as $payment)
-                <tr>
-                    <td>{{ $payment->id }}</td>
-                    <td>{{ $payment->user_id }}</td>
-                    <td>{{ $payment->amount }}</td>
-                    <td>{{ $payment->payment_method }}</td>
-                    <td>{{ $payment->created_at }}</td>
-                </tr>
+            <tr>
+                <td>{{ $payment->id }}</td>
+                <td>{{ $payment->user_id }}</td>
+                <td>{{ $payment->amount }}</td>
+                <td>{{ $payment->payment_method }}</td>
+                <td>{{ $payment->created_at }}</td>
+            </tr>
             @endforeach
         </tbody>
     </table>

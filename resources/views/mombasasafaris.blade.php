@@ -39,9 +39,6 @@
             <div class="text">
                 <h1>MOMBASA SAFARIS</h1>
             </div>
-            <div class="submit-button">
-                <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
-            </div>
         </div>
     </div><br>
     <h1>MOMBASA MARINE NATIONAL</h1>

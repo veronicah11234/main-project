@@ -125,7 +125,7 @@
                             Mombasa
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/nakuru">Parks</a></li>
+                            <li><a class="dropdown-item" href="/mombasaparks">Parks</a></li>
                             <li><a class="dropdown-item" href="/mombasasafaris">Safaris</a></li>
                         </ul>
                     </li>
@@ -136,7 +136,7 @@
                             Narok
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/nakuru">Parks</a></li>
+                            <li><a class="dropdown-item" href="/narokparks">Parks</a></li>
                             <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
                         </ul>
                     </li>
@@ -149,8 +149,8 @@
                             Malindi
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/nakuru">Parks</a></li>
-                            <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
+                            <li><a class="dropdown-item" href="/malindiparks">Parks</a></li>
+                            <li><a class="dropdown-item" href="/malindisafaris">Safaris</a></li>
                         </ul>
                     </li>
 
@@ -161,8 +161,18 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/nakuruhotels">Nakuru</a></li>
                             <li><a class="dropdown-item" href="/nairobihotel">Nairobi</a></li>
+                            <li><a class="dropdown-item" href="/mombasahotel">Mombasa</a></li>
+                            <li><a class="dropdown-item" href="/malindihotel">Malindi</a></li>
+                            <li><a class="dropdown-item" href="/narokhotel">Narok</a></li>
+
                         </ul>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
                 </ul>
             </div>
         </div>

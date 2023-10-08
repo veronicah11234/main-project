@@ -117,7 +117,7 @@
             display: flex;
             justify-content: flex-end; /* Move the filter card to the right */
             /* padding: 20px; Add some padding for spacing */
-        } */
+        /* } */ */
         .filter-card {
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -159,10 +159,6 @@
                 <div class="text">
                     <h1>Welcome to Our Hotel</h1><br>
                 </div>
-                
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
-                </div>
             </div>
         </div><br><br>
 
@@ -170,33 +166,7 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="filter-card">
-                        <h3>Filter by:</h3>
-                        <div class="form-group">
-                            <label for="check_in_date">Check-in Date:</label>
-                            <input type="date" id="check_in_date" name="check_in_date">
-                        </div><br>
-                        <div class="form-group">
-                    <label for="check_out_date">Check-out Date:</label>
-                    <input type="date" id="check_out_date" name="check_out_date">
-                </div><br>
-        
-                <div class="form-group">
-                    <label for="adults">Adults:</label>
-                    <select id="adults" name="adults">
-                        @for ($i = 1; $i <= 5; $i++)
-                            <option value="{{ $i }}">{{ $i }}</option>
-                        @endfor
-                    </select>
-                </div>
-        
-                <div class="form-group">
-                    <label for="children">Children:</label>
-                    <select id="children" name="children">
-                        @for ($i = 0; $i <= 5; $i++)
-                            <option value="{{ $i }}">{{ $i }}</option>
-                        @endfor
-                    </select>
-                </div>
+
                         <div class="filter-options">
                             <label class="checkbox">
                                 <h4>Star rating:</h2>
@@ -262,7 +232,9 @@
                                     <p class="price">Price from</p>
                                     <p class="price" style="color:rgb(70, 131, 8)">KES 20,134</p>
                                     <p class="price" style="color:rgb(241, 29, 14)">per night</p>
-                                    <button class="btn btn-success">Check availability</button>
+                                    <div class="submit-button">
+                                        <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+                                    </div>
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                             </div>
@@ -277,30 +249,18 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="check_in_date">Check-in Date:</label>
-                        <input type="date" id="check_in_date" name="check_in_date">
+                        
                     </div><br>
                     <div class="form-group">
-                <label for="check_out_date">Check-out Date:</label>
-                <input type="date" id="check_out_date" name="check_out_date">
+
             </div><br>
     
             <div class="form-group">
-                <label for="adults">Adults:</label>
-                <select id="adults" name="adults">
-                    @for ($i = 1; $i <= 5; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
-                </select>
+ 
             </div>
     
             <div class="form-group">
-                <label for="children">Children:</label>
-                <select id="children" name="children">
-                    @for ($i = 0; $i <= 5; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
-                </select>
+
             </div>
                     <div class="filter-card">
                         <div class="filter-options">
@@ -368,7 +328,9 @@
                                     <p class="price">Price from</p>
                                     <p class="price" style="color:rgb(70, 131, 8)">KES 25,530</p>
                                     <p class="price" style="color:rgb(236, 26, 19)">per night</p>
-                                    <button class="btn btn-success">Check availability</button>
+                                    <div class="submit-button">
+                                        <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+                                    </div>
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                             </div>
@@ -383,30 +345,18 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="check_in_date">Check-in Date:</label>
-                        <input type="date" id="check_in_date" name="check_in_date">
+                        
                     </div><br>
                     <div class="form-group">
-                <label for="check_out_date">Check-out Date:</label>
-                <input type="date" id="check_out_date" name="check_out_date">
+
             </div><br>
     
             <div class="form-group">
-                <label for="adults">Adults:</label>
-                <select id="adults" name="adults">
-                    @for ($i = 1; $i <= 5; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
-                </select>
+ 
             </div>
     
             <div class="form-group">
-                <label for="children">Children:</label>
-                <select id="children" name="children">
-                    @for ($i = 0; $i <= 5; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
-                </select>
+
             </div>
                     <div class="filter-card">
                         <h3>Filter by:</h3>
@@ -453,7 +403,9 @@
                                     <p class="price">Price from</p>
                                     <p class="price" style="color:rgb(70, 131, 8)">KES 30,530</p>
                                     <p class="price" style="color:rgb(238, 26, 18)">per night</p>
-                                    <button class="btn btn-success">Check availability</button>
+                                    <div class="submit-button">
+                                        <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+                                    </div>
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                             </div>

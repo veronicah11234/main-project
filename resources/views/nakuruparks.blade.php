@@ -33,9 +33,6 @@
             <div class="text">
                 <h1>NAKURU COUNTY</h1>
             </div>
-            <div class="submit-button">
-                <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
-            </div>
         </div>
     </div><br><br><br>
 
@@ -95,8 +92,7 @@
                         <div class="card-body">
                          <div class="card-description">
                             <h5 class="card-title">8 Days, 7 Nights Safari – Lake Nakuru, Maasai Mara, Naivasha and Amboseli Park</h5>
-                            <p class="card-text">Great experience, 8 days of wonder. Am happy to have spend my charismas on a Safari. All parks are filled with wildlife, big and small, and you are guaranteed to see all of the Big 5 plus more. That’s why prefer multi day safaris.
-                                Read more about 8 Days, 7 Nights Safari – Lake Nakuru, Maasai Mara, Naivasha and Amboseli Park - https://www.viator.com/tours/Nairobi/8-Days-7-Nights-Lake-Nakuru-Maasai-Mara-Naivasha-and-Amboseli-National-Park/d5280-60186P27?mcid=56757</p>
+                            <p class="card-text">Great experience, 8 days of wonder. Am happy to have spend my charismas on a Safari. All parks are filled with wildlife, big and small, and you are guaranteed to see all of the Big 5 plus more. That’s why prefer multi day safaris.<a href="/park1">see more</a></p>
                                 <div class="rating">
                                     <p style="color:rgb(70, 131, 8)">8.3</p>
                                     <p style="color:rgb(70, 131, 8)">245 reviews</p>
@@ -107,7 +103,7 @@
                                 <p class="price" style="color:rgb(70, 131, 8)">$ 1,160</p>
                                 <p class="price" style="color:rgb(238, 46, 12)">per Adults</p>
                                 <div class="submit-button">
-                                    <button type="submit" class="btn btn-success"><a href="/park1">Check availability</a></button>
+                                    <button type="submit" class="btn btn-success"><a href="/book">Book now</a></button>
                                 </div>
                             </div>
                           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
@@ -176,8 +172,8 @@
                          <div class="card-description">
                             <h5 class="card-title">4 Days, 3 Nights Safari – Lake Nakuru and Maasai Mara Safari</h5>
                             <p class="card-text">From lions and wildebeests to flamingos and hippos, our tour offers the ultimate variety of Kenya’s wildlife. In 4 days you will experience vast savannah teeming with the Big Five, lakes filled with colorful birds, plus forests and parks populated by rhinos, leopards, giraffes and more.
-
-                                Read more about 4 Days, 3 Nights Safari – Lake Nakuru and Maasai Mara Safari - https://www.viator.com/tours/Nairobi/4-Days-3-Nights-Lake-Nakuru-to-Maasai-Mara-Safari/d5280-60186P25?mcid=56757</p>
+                                <a href="/park2">See More</a>
+                                </p>
                                 <div class="rating">
                                     <p style="color:rgb(70, 131, 8)">9.3</p>
                                     <p style="color:rgb(70, 131, 8)">345 reviews</p>
@@ -188,7 +184,7 @@
                                 <p class="price" style="color:rgb(70, 131, 8)">$1,574.36</p>
                                 <p class="price" style="color:rgb(241, 73, 22)">per person</p>
                                 <div class="submit-button">
-                                    <button type="submit" class="btn btn-success"><a href="/park2">Check availability</a></button>
+                                    <button type="submit" class="btn btn-success"><a href="/book">Book Know</a></button>
                                 </div>                           
                              </div>
                           <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>

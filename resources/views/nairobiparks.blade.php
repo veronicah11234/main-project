@@ -33,9 +33,6 @@
             <div class="text">
                 <h1>Nairobi COUNTY</h1>
             </div>
-            <div class="submit-button">
-                <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
-            </div>
         </div>
     </div><br><br><br>
 
@@ -97,7 +94,7 @@
                             <h1 class="card-title">Nairobi national park</h1>
                             <h5 class="card-title">“The World’s only Wildlife Capital”</h5>
                             <p class="card-text">A short drive out of Nairobi’s central business district is the Nairobi National Park. Wide open grass plains and backdrop of the city scrapers, 
-                                scattered acacia bush play host to a wide variety of wildlife including the endangered black rhino, lions, leopards, cheetahs, hyenas, buffaloes, giraffes and diverse birdlife with over 400 species recorded. Visitors can enjoy the park’s picnic sites, three campsites and the walking trails for hikers.</p>
+                                scattered acacia bush play host to a wide variety of wildlife including the endangered black rhino, lions, leopards, cheetahs, hyenas, buffaloes, giraffes and diverse birdlife with over 400 species recorded. Visitors can enjoy the park’s picnic sites, three campsites and the walking trails for hikers.<a href="/nairobipark1">see more</a></p></p>
                                 <div class="rating">
                                     <p style="color:rgb(70, 131, 8)">8.3</p>
                                     <p style="color:rgb(70, 131, 8)">245 reviews</p>
@@ -108,7 +105,7 @@
                                 <p class="price" style="color:rgb(70, 131, 8)">$ 5,160</p>
                                 <p class="price" style="color:rgb(226, 66, 17)">per Adults</p>
                                 <div class="submit-button">
-                                    <button type="submit" class="btn btn-success"><a href="/nairobipark1">Check availability</a></button>
+                                    <button type="submit" class="btn btn-success"><a href="/book">Book Know</a></button>
                                 </div>
                             </div>
                           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
@@ -177,7 +174,7 @@
                          <div class="card-description">
                             <h1 class="card-title">Nairobi National Park Tours and Tickets</h1>
                             <p class="card-text">Located just south of the city, Nairobi National Park is Kenya’s first game reserve and the only protected area in the world that sits so close to a nation’s capital. 
-                                Visitors to the vast wildlife park are likely to spot black rhinos, lions, giraffe, and zebra, as well as some 400 bird species.</p>
+                                Visitors to the vast wildlife park are likely to spot black rhinos, lions, giraffe, and zebra, as well as some 400 bird species.<a href="/nairobipark1">see more</a></p></p>
                                 <div class="rating">
                                     <p style="color:rgb(70, 131, 8)">9.3</p>
                                     <p style="color:rgb(70, 131, 8)">345 reviews</p>
@@ -188,7 +185,7 @@
                                 <p class="price" style="color:rgb(70, 131, 8)">$,574.36</p>
                                 <p class="price" style="color:rgb(235, 55, 10)">per person</p>
                                 <div class="submit-button">
-                                    <button type="submit" class="btn btn-success"><a href="/nairobipark2">Check availability</a></button>
+                                    <button type="submit" class="btn btn-success"><a href="/book">Book Know</a></button>
                                 </div>                           
                              </div>
                           <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>

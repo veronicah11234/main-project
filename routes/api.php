@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\TourController;
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 use App\Http\Controllers\admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\manager\ProfileController as ManagerProfileController;
@@ -28,7 +29,7 @@ Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 Route::post('/verify-email', [AuthController::class, 'verifyEmail']);
 
-Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
+
 
 Route::group(['middleware' => ['auth:sanctum', 'role:user']], function(){
     Route::get('/dashboard/profile', [ProfileController::class, 'index'])->name('dashboard.profile');
@@ -36,12 +37,15 @@ Route::group(['middleware' => ['auth:sanctum', 'role:user']], function(){
         Route::post('/delete-account', [AuthController::class, 'softDeleteAccount']);
 });
 
-Route::group(['middleware' => ['auth:sanctum', 'role:admin']], function(){
-    Route::get('/admin/dashboard/profile', [AdminProfileController::class, 'index'])->name('admin.dashboard.profile');
-    Route::post('/logout', [AuthController::class, 'logout']);});
+// Route::group(['middleware' => ['auth:sanctum', 'role:user']], function(){
+//     Route::get('/admin/dashboard/profile', [AdminProfileController::class, 'index'])->name('admin.dashboard.profile');
+//     Route::post('/logout', [AuthController::class, 'logout']);});
 
-Route::group(['middleware' => ['auth:sanctum', 'role:manager']], function(){
-    Route::get('/manager/dashboard/profile', [ManagerProfileController::class, 'index'])->name('manager.dashboard.profile');
+Route::group(['middleware' => ['auth:sanctum', 'role:admin']], function(){
+    Route::get('/manager/dashboard/profile', [ManagerProfileController::class, 'index'])->name('admin.dashboard.profile');
+    Route::get('/admin/addtour', [DashboardController::class, 'add_tour'])->name('admin.addtour');
+    
+
     Route::post('/logout', [AuthController::class, 'logout']);});
 
 
@@ -51,8 +55,4 @@ Route::get('/users/{id}', [UserController::class, 'getUser']);
 
 
 Route::apiResource('users',AdminController::class);
-
-Route::get('/hotels', [HotelController::class, 'index']);
-Route::get('/book', [HotelController::class, 'index']);
-Route::get('/parks', [ParkController::class, 'index']);
 Route::get('/getCounties/{id}','MainController@getcounties');

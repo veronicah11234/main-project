@@ -19,10 +19,10 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'username',
+        'name',
         'email',
         'password',
-        'role', // Add the 'role' field
+        // 'role', // Add the 'role' field
         'permissions', // Add the 'permissions' field
     ];
 
@@ -53,14 +53,24 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $dates = ['deleted_at'];
     
-    public function hasRole($role)
-{
-    return $this->roles->contains('username', $role);
-}
+     public function hasRole($role)
+ {
+     return $this->roles->contains('username', $role);
+ }
 
-public function roles()
-{
-    return $this->belongsToMany(Role::class);
-}
+ public function roles()
+ {
+     return $this->belongsToMany(Role::class);
+ }
+
+ public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
+    }
+    // public function isAdmin()
+// {
+//     return $this->is_admin;
+// }
+
 }
 

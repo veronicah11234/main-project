@@ -25,17 +25,24 @@
                 @yield('content')
             </div>
 
-            <!-- Page Heading -->
-            {{-- <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header> --}}
+            @auth
+<!-- First anchor tag for triggering the logout form -->
+{{-- <a href="{{ route('logout') }}"
+   onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+   Logout
+</a>
 
-            <!-- Page Content -->
-            {{-- <main>
-                {{ $slot }}
-            </main> --}}
+<!-- Logout form -->
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+   @csrf
+</form> --}}
+
+
+@else
+    <a href="{{ route('login') }}">Login</a>
+@endauth
+
         </div>
     </body>
 </html>

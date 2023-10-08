@@ -65,9 +65,6 @@
             <div class="text">
                 <h1>Masai Mara, Lake Nakuru, Lake Naivasha and Amboseli</h1>
             </div>
-            <div class="submit-button">
-                <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
-            </div>
         </div>
     </div><br><br><br>
 

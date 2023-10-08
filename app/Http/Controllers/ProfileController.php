@@ -11,9 +11,17 @@ class ProfileController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
 
+    }
+
+    public function update_profile(Request $request){
+        $user =Auth::user();
+        $user->update($request->only(['name', 'email']));
+        return redirect()->route('admin.profile')->with('success', 'Update successful.');
+    
+    
     }
 
     /**

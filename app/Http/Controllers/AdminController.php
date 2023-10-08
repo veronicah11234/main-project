@@ -14,18 +14,11 @@ use Illuminate\Support\Facades\Log;
 class AdminController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
-    public function index()
+    public function dashboard()
     {
-        return view('admin.index');
+        return view('admin.dashboard');
     }
-    public function countries()
-    {
-        return view('countries.admin'); // Load the admin countries index view
-    }
-    // public function countiesIndex()
-    // {
-    //     return view('admin.counties.index'); // Load the admin countries index view
-    // }
+   
 
         public function assign_roles(Request $request): JsonResponse
         {
@@ -54,5 +47,16 @@ class AdminController extends Controller
                 return response()->json(['error' => $errorMessage], 500);
             }
         }
-
+        public function logout(): JsonResponse
+        {
+            try {
+                // Instead of deleting tokens, you can simply log the user out
+                Auth::logout();
+                return response()->json(['message' => 'You have logged out.'], 200);
+            } catch (\Exception $e) {
+                $errorMessage = $e->getMessage();
+                Log::error($errorMessage);
+                return response()->json(['error' => $errorMessage], 500);
+            }
+        }
 }

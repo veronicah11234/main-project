@@ -74,9 +74,6 @@
                 <div class="text">
                     <h1>Welcome to Our Hotel</h1><br>
                 </div>
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
-                </div>
             </div>
         </div><br><br><br>
 
@@ -180,7 +177,9 @@
                                     <p class="price">Price from</p>
                                     <p class="price" style="color:rgb(70, 131, 8)">KES 50,134</p>
                                     <p class="price" style="color:rgb(241, 30, 23)">per night</p>
-                                    <button class="btn btn-success">Check availability</button>
+                                    <div class="submit-button">
+                                        <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+                                    </div>
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                             </div>
@@ -287,7 +286,9 @@
                                     <p class="price">Price from</p>
                                     <p class="price" style="color:rgb(70, 131, 8)">KES 45,530</p>
                                     <p class="price" style="color:rgb(230, 77, 17)">per night</p>
-                                    <button class="btn btn-success">Check availability</button>
+                                    <div class="submit-button">
+                                        <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+                                    </div>
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                             </div>
@@ -373,8 +374,10 @@
                         <div class="card-prices">
                             <p class="price">Price from</p>
                             <p class="price" style="color:rgb(70, 131, 8)">KES 35,530</p>
-                            <p class="price" style="color:rgb(236, 20, 12)">per night</p>
-                            <button class="btn btn-success">Check availability</button>
+                            <p class="price" style="color:#ec140c">per night</p>
+                            <div class="submit-button">
+                                <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+                            </div>
                         </div>
                       <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                     </div>
@@ -438,7 +441,9 @@
                             <p class="price">Price from</p>
                             <p class="price" style="color:rgb(70, 131, 8)">KES 30,530</p>
                             <p class="price" style="color:rgb(231, 24, 9)">per night</p>
-                            <button class="btn btn-success">Check availability</button>
+                            <div class="submit-button">
+                                <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+                            </div>
                         </div>
                       <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                     </div>
@@ -504,7 +509,9 @@
                             <p class="price">Price from</p>
                             <p class="price">KES 55,530</p>
                             <p class="price">per night</p>
-                            <button class="btn btn-success">Check availability</button>
+                            <div class="submit-button">
+                                <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+                            </div>
                         </div>
                       <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                     </div>
@@ -569,7 +576,9 @@
                             <p class="price">Price from</p>
                             <p class="price">KES 40,530</p>
                             <p class="price">per night</p>
-                            <button class="btn btn-success">Check availability</button>
+                            <div class="submit-button">
+                                <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+                            </div>
                         </div>
                       <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                     </div>

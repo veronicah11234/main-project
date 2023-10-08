@@ -115,9 +115,7 @@
                     </p>
                     <div class="submit-button">
                         <button type="submit" class="btn btn-success"><a href="/nairobihotel">know more</a></button>
-                    </div>
-                   
-        
+                    </div>       
                     
                 </div>
                 <div class="col-6">
@@ -140,8 +138,21 @@
                     <div class="submit-button">
                         <button type="submit" class="btn btn-success"><a href="/nakuruhotels">Know more</a></button>
                     </div>
-                   
-        
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="/images/food5.png" alt="Images" class="img-fluid" style="height:400px; width:450px">
+                            </div>
+                                <div class="col-lg">
+                                <h1>Best Restaraunts in Nakuru</h1>
+                                <p>
+                                    Here is a list of the Best restaurants in Nakuru. On average, 3-star hotels in Nakuru cost KES 17,094 per night, and 4-star hotels in Nakuru are KES 11,467 per night.
+                                     If you're looking for something really special, a 5-star hotel in Nakuru can on average be found for KES 46,273 per night (based on Booking.com prices).
+                                </p>
+                                <div class="submit-button">
+                                    <button type="submit" class="btn btn-success"><a href="/mombasahotels">Know more</a></button>
+                                </div>        
                     
                 </div>
             </div>

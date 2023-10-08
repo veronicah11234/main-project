@@ -124,16 +124,15 @@ video {
             <video autoplay muted loop id="my-downloads">
                 <source src="images/buffallov.mp4" type="video/mp4">
             </video>
-            <div class="overlay"> 
-                <div class="submit-button">
+            {{-- <div class="overlay"> 
+                {{-- <div class="submit-button">
                     <button type="submit" class="btn btn-success"><a href="/book">Book Now</a></button>
-                </div>
-            </div>
+                </div> --}}
+            {{-- </div>  --}}
         </div>
         <div style="background-color: black; width:480px; height:200px; position:relative; opacity:0.5; color:white;text-align:center; align-items:center; display:flex;padding:20px; margin-bottom:-40px; border:0.5rem soliid; border-radius:3rem ">
             <div><h1>Miwamu Tourism Management</h1>
                 <h3 style="color: violet">PLAN YOUR VISIT</h3>
-                <button type="submit" class="btn " style="color: white;background-color:black"><a href="/book">Book Now</a></button>
             </div>
         </div>
         </div>

@@ -33,6 +33,9 @@
         <label for="email">Email:</label>
         <input type="email" name="email" required>
         <br>
+        <label for="amount">Amount:</label>
+        <input type="text" name="amount" required>
+        <br>
         <label for="destination_id">Select a destination:</label>
         <select name="destination_id" required>
             @foreach ($destinations as $destination)
