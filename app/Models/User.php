@@ -22,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        // 'role', // Add the 'role' field
+        'role', // Add the 'role' field
         'permissions', // Add the 'permissions' field
     ];
 
@@ -67,10 +67,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(CartItem::class);
     }
-    // public function isAdmin()
-// {
-//     return $this->is_admin;
-// }
+
 
 }
 

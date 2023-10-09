@@ -12,16 +12,16 @@ use App\Models\CartItem;
 
 class TourController extends Controller {
    
-    public function index()
-    {
-        // Retrieve the tours data from your database 
-        $tours = Tour::all(); // Replace `Tour` with your actual model name
+    // public function index()
+    // {
+    //     // Retrieve the tours data from your database 
+    //     $tours = Tour::all(); // Replace `Tour` with your actual model name
     
-        // Pass the data to the view
-        return view('admin.addtour', ['tours' => $tour]);
+    //     // Pass the data to the view
+    //     return view('admin.addtour', ['tours' => $tour]);
     
         
-    }
+    // }
 
 
 public function create(Request $request)
@@ -33,7 +33,7 @@ public function create(Request $request)
 public function showTours()
 {
     $tours = Tour::all(); // Replace with your actual query to retrieve tours
-    return view('admin.addtour', compact('tours'));
+    return view('admin.add_tour', compact('tours'));
 }
 
 
@@ -45,6 +45,7 @@ public function edit($id)
     // Retrieve the list of all tours
     $tours = Tour::all();
 
+    $selectedTour = Tour::find($id);
     // Pass both $selectedTour and $tours to the view
     return view('admin.edit', compact('selectedTour', 'tours'));
 }
@@ -96,166 +97,67 @@ public function update(Request $request, $id)
     }
 
 
-    public function nakuruparks($tourId)
-{
-    // Fetch data from the database based on the $tourId parameter
-    $tour = Tour::find($tourId);
-
-    // Check if the data exists before passing it to the view
-    if (!$tour) {
-        abort(404); // Or handle the case when data is not found
-    }
-
-    $tour = Tour::all(); // Fetch all tours
-
-    return view('nakuruparks', ['tour' => $tour, 'tours' => $tour]);
-}
 
 
-// public function nakuruparks($tourId)
-// {
-//     // Fetch data from the database based on the $tourId parameter
-//     $tour = Tour::find($tourId);
+// public function addTour(Request $request, Tour $tourModel) {
+//     $validated_input = $request->validate([
+//         'name' => 'required',
+//         'description' => 'required',
+//         'image' => 'required|image',
+//         'price' => 'required|numeric',
+//     ]);
 
-//     // Check if the data exists before passing it to the view
-//     if (!$tour) {
-//         abort(404); // Or handle the case when data is not found
+//     // Image upload logic
+//     if ($request->hasFile('image')) {
+//         $fileNametostore = $this->uploadImage($request->file('image'));
+//     } else {
+//         $fileNametostore = "noimage.jpg";
 //     }
 
-//     $tours = Tour::all();
+//     try {
+//         $tour = $tourModel->create([
+//             'name' => $request->name,
+//             'description' => $request->description,
+//             'image' => $fileNametostore,
+//             'price' => $request->price,
+//         ]);
+//         $formData = [
+//             'name' => $request->input('name'),
+//             'description' => $request->input('description'),
+//             'image' => $request->input('image'),
+//             'price' => $request->input('price'),
+    
+//         ];
 
-//     return view('nakuruparks', ['tour' => $tour, 'tours' => $tours]);
+//         $request->session()->put('tourFormData', $formData);
+
+//         return redirect('/admin/edit')->with("success", 'Tour added successfully');
+//     } catch (\Exception $exception) {
+//         if ($exception->getCode() === '23000') {
+//             // Duplicate entry error
+//             return redirect()->back()->withInput()->withErrors(['email' => 'The email address is already in use. Please choose a different email.']);
+//         } else {
+//             // Other database-related error
+//             return redirect()->back()->withInput()->withErrors(['error' => 'An error occurred. Please try again later.']);
+//         }
+//     }
 // }
 
+private function uploadImage($image) {
+    // Get filename with extension
+    $filenamewithext = $image->getClientOriginalName();
+    // Get filename only
+    $filename = pathinfo($filenamewithext, PATHINFO_FILENAME);
+    // Get extension
+    $extension = $image->getClientOriginalExtension();
+    // Filename to store
+    $fileNametostore = $filename . '_' . time() . '.' . $extension;
+    // Upload the file
+    $path = $image->storeAs('public/image', $fileNametostore);
 
-        
-        public function Cart(Request $request, $tourId)
-        {
-            $tour = Tour::find($tourId);
-            $tourId = $request->input('tour_id');
-        
-            if (!$tour) {
-                // Handle the case where the tour is not found
-                return redirect()->route('tours.index')->with('error', 'Tour not found.');
-            }
-        
-            if ($request->isMethod('post')) {
-                // Handle POST request to add a tour to the cart
-                $tourId = $request->input('tour_id');
-                
-                // Add the tour to the user's cart
-                // ...
-        
-                return view('cart', ['cartItems' => $cartItems, 'totalPrice' => $totalPrice]);
-            }
-            $tourId = $request->input('tour_id');
-        
-            // Add the tour to the user's cart
-            if (auth()->check()) {
-                CartItem::create([
-                    'user_id' => auth()->user()->id,
-                    'tour_id' => $tour->id,
-                    'quantity' => 1,
-                    'price' => $tour->price,
-                ]);
-            } else {
-                // Handle the case where the user is not authenticated, e.g., show an error message or redirect to login.
-            }
-        
-            return redirect()->back()->with('success', 'Tour added to cart.');
-        }
-        
-
-
-public function viewCart()
-{
-    $cartItems = CartItem::where('user_id', auth()->user()->id)->with('tour')->get();
-    $totalPrice = $cartItems->sum(function ($item) {
-        return $item->quantity * $item->price;
-    });
-
-    $cartItems = // Retrieve your cart items here
-
-// Calculate the total price by iterating through cart items
-$totalPrice = 0;
-foreach ($cartItems as $item) {
-    $totalPrice += $item->quantity * $item->tour->price;
-}
-
-// Pass $cartItems and $totalPrice to the view
-return view('cart', compact('cartItems', 'totalPrice'));
-    // Assuming you have a $cartItems variable containing the cart items
-return view('cart', [
-    'cartItems' => $cartItems,
-    // Other variables you want to pass to the view
-]);
-    return view('cart', compact('cartItems', 'totalPrice'));
-}
-
-
-public function __construct()
-{
-    $this->middleware('auth'); // Apply 'auth' middleware to the entire controller
-}
-
-
-public function addToCart(Request $request)
-{
-    // Get the data sent from the client (image, tourName, price, tourId)
-    $image = $request->input('image');
-    $tourName = $request->input('name');
-    $price = $request->input('price');
-    $tourId = $request->input('tour_id');
-    
-    // Add the item to the cart (you can use Laravel's session for this)
-    $cart = session('cart', []);
-    
-    // Check if the item already exists in the cart based on tourId
-    $existingItem = collect($cart)->where('tour_id', $tourId)->first();
-    
-    if ($existingItem) {
-        // If the item already exists, increment its quantity
-        $existingItem['quantity'] += 1;
-    } else {
-        // Otherwise, add a new item to the cart
-        $newItem = [
-            'image' => $image,
-            'name' => $name,
-            'description' => $description,
-            'price' => $price,
-            'image' => $image,
-            'tour_id' => $tourId,
-            'quantity' => 1,
-        ];
-        $cart[] = $newItem;
-    }
-    // $formData = [
-    //     'name' => $request->input('name'),
-    //     'description' => $request->input('description'),
-    //     'description' => $request->input('description'),
-    //     'description' => $request->input('description'),
-
-    //     // Add other form fields as needed
-    // ];
-
-    // Save the new tour to the database
-    $newTour->save();
-
-    // Set the newlyAddedTour variable
-    $newlyAddedTour = $newTour;
-
-    // Redirect to the edit view with the newlyAddedTour data
-    return view('admin.edit', ['newlyAddedTour' => $newlyAddedTour]);
-
-    // Store the updated cart in the session
-    session(['cart' => $cart]);
-    $request->session()->put('tourFormData', $formData);
-
-    // Redirect to the edit page
-    return redirect()->route('edit_tour');
-
-    return response()->json(['message' => 'Item added to cart']);
-}
+    return $fileNametostore;
+}       
+       
 
 
 
@@ -267,7 +169,7 @@ public function destroy($id)
     // Delete the tour
     $tour->delete();
 
-    return redirect()->route('admin.edit')->with('success', 'Tour deleted successfully');
+    return redirect()->route()->with('success', 'Tour deleted successfully');
 }
 
 

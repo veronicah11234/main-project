@@ -70,37 +70,13 @@
                 <input type="submit" value="submit">
             </form>
         </div>
-
-{{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{ route('welcome') }}">Tourism Admin</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button> --}}
-    {{-- <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}"> 
-                <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
-            </li>
-             <li class="nav-item {{ Request::is('tours') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('tours.index') }}">Tours</a> --}}
-            {{-- </li>           
-             <li class="nav-item {{ Request::is('book') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('book') }}">Bookings</a>
-            </li> 
-             <li class="nav-item {{ Request::is('users') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('profile') }}">Users</a>
-            </li> --}}
-        {{-- </ul>
-    </div>
-</nav> - --}}
 <nav>
-    <ul>
-            <li><a href="{{ route('admin.addtour') }}">Add Tour</a></li>
+    
+        <ul>
+            <li><a href="{{ route('admin.add_tour') }}">Add Tour</a></li>
             <li><a href="{{ route('add_booking') }}">Add Booking</a></li>
             <li><a href="{{ route('admin.logout') }}">Logout</a></li>
-
-     </ul> 
+        </ul>
  </nav> 
 
 </body>

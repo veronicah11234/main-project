@@ -40,101 +40,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admindashboard', function () {
-    return view('admindashboard');
-})->name('admindashboard');
-
-// routes/web.php
-
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    // Define your admin dashboard route here
-    Route::get('/admin/dashboard/logout', [AdminController::class,'logout'])->name('admin.dashboard.logout');
-});
-
-
-// Route for adding a tour (assuming you have an 'addtour' view and controller method)
-Route::get('/admin/addtour', function () {
-    return view('admin.addtour'); // Use 'admin.addtour' as the view name
-})->name('admin.addtour');
-
-Route::get('/admin/addbooking', function () {
-    return view('admin.addbooking'); // Use 'admin.addtour' as the view name
-})->name('admin.addbooking');
-
-
-Route::get('/admin/edit', [DashboardController::class,'edit'])->name('edit');
-// Route::post('/admin/addtour', [DashboardController::class,'addTour'])->name('add_tour');
-
-
-
-
-// Route for logging out
-Route::get('/admin/logout', [DashboardController::class, 'logout'])->name('admin.logout');
-
-Route::middleware(['admin'])->group(function () {
-    // Define your admin routes here
-    Route::get('/admin', [AdminController::class, 'admindashboard'])->name('admin.dashboard'); // Admin dashboard
-
-    Route::get('/admin/addbooking', function () {
-        return view('admin.addbooking'); // Display the Add Booking form
-    })->name('admin.addbooking');
-
-    Route::get('/admin/addtour', function () {
-        return view('admin.addtour'); // Display the Add Tour form
-    })->name('admin.addtour');
-
-    // Add other admin routes as needed
-
-    Route::get('/admin/edit_tour/{id}', [DashboardController::class, 'editTour'])->name('edit_tour');
-    Route::post('/admin/update_tour/{id}', [DashboardController::class, 'updateTour'])->name('update_tour');
-    Route::get('/admin/delete_tour/{id}', [DashboardController::class, 'deleteTour'])->name('delete_tour');
-
-    Route::get('/admin/logout', [DashboardController::class, 'logout'])->middleware('auth');
-    Route::post('/admin/logout', [DashboardController::class, 'logout'])->name('admin.logout');
-    Route::post('/logout', [Auth\LoginController::class, 'logout'])->name('logout');
-
-    Route::get('/', [HomeController::class, 'index']); // Replace HomeController::class with the appropriate controller for your home page
-});
-Route::middleware(['admin'])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin');
-    })->name('admin.dashboard');
-});
-
-
-
-
-Route::middleware(['auth', 'admin'])->group(function () {
-    // Define your admin routes here
-    Route::get('/admin', [AdminController::class, 'index']); // Example admin route
-    Route::get('/admin/addtour', [DashboardController::class, 'addtour'])->name('add_tour');
-    Route::get('/admin/addbooking', [BookingController::class, 'addbooking'])->name('add_booking');
-
-
-    Route::get('/admin/edit_tour/{id}', [DashboardController::class, 'editTour'])->name('edit_tour');
-    Route::post('/admin/update_tour/{id}', [DashboardController::class, 'updateTour'])->name('update_tour');
-    Route::get('/admin/delete_tour/{id}', [DashboardController::class, 'deleteTour'])->name('delete_tour');
-
-    // Add a route for the admin dashboard
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-
-    // Remove the AutoLogout middleware from these routes
-    Route::get('/admin/logout', [DashboardController::class, 'logout'])->middleware('auth');
-    Route::post('/admin/logout', [DashboardController::class, 'logout'])->name('admin.logout');
-    Route::post('/logout', [Auth\LoginController::class, 'logout'])->name('logout');
-
-    // Define other admin routes as needed
-});
-
-
-
-
-
-
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -203,6 +108,7 @@ Route::get('/bogoria', function () {
     return view('bogoria');
 });
 
+
 Route::get('/nakuru', function () {
     return view('nakuru');
 });
@@ -246,27 +152,6 @@ Route::get('/addToCart', function () {
     return view('addToCart');
 });
 
-Route::get('/nakuruparks/{tourId}', [TourController::class, 'showNakuruParks']);
-
-
-Route::match(['get', 'post'], '/cart', [TourController::class, 'cart'])->name('tours.cart');
-Route::post('/cart', [TourController::class, 'addToCart'])->name('tours.addToCart');
-Route::get('/tours/index', function () {
-    return view('tours/index');
-})->name('tours');
-Route::get('/cart/{tourId}', [TourController::class, 'Cart'])->name('tours.cart');
-Route::middleware(['auth'])->group(function () {
-    Route::match(['get', 'post'], '/cart', [TourController::class, 'cart'])->name('tours.cart');
-    Route::post('/cart', [TourController::class, 'addToCart'])->name('tours.addToCart');
-    // Route::get('/cart', 'CartController@index')->name('cart.index');
-    Route::get('/cart', [CartController::class, 'addToCart'])->name('cart.addToCart');
-    Route::post('tours/edit', [TourController::class, 'edit'])->name('tours.edit');
-
-    Route::get('/cart/{tourId}', [TourController::class, 'Cart'])->name('tours.cart');  
-      Route::resource('tours', TourController::class);
-});
-
-
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -291,26 +176,6 @@ Route::get('/signup', function () {
 Route::get('/admin/edit', function () {
     return view('admin/edit');
 });
-
-
-// Route::get('/admin/tours', function () {
-//     return view('admin/tours');
-// });
-Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
-
-
-
-Route::get('/admin/users/edit', function () {
-    return view('admin/users/edit');
-
-});Route::get('/admin/users/usermanager', function () {
-    return view('admin/users/usermanager');
-});
-
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('welcome');
-
 
 Route::get('/tours/index', function () {
     return view('tours/index');
@@ -342,12 +207,71 @@ Route::get('/paypal-reciept', function () {
 Route::get('/admin/users', function () {
     return view('admin/users');
 })->name('users');
-// Route::get('/addtour', [DashboardController::class, 'add_tour'])->name('add_tour');
-// Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-// Other DashboardController routes
 
-// Route::post('/tours', [TourController::class, 'store'])->name('tours.store');
-// Route::get('/cart/{id}', [TourController::class, 'cart'])->name('tours.cart');
+Route::get('/nakuruparks/{tourId}', [TourController::class, 'showNakuruParks']);
+
+
+Route::get('/admin/edit', [DashboardController::class,'edit'])->name('edit');
+
+// Route for logging out
+Route::get('/admin/logout', [DashboardController::class, 'logout'])->name('admin.logout');
+
+Route::middleware(['admin'])->group(function () {
+    // Define your admin routes here
+    Route::get('/admin', [AdminController::class, 'admindashboard'])->name('admin.dashboard'); // Admin dashboard
+
+    Route::get('/admin/addbooking', function () {
+        return view('admin.addbooking'); // Display the Add Booking form
+    })->name('admin.addbooking');
+
+    Route::get('/admin/addtour', function () {
+        return view('admin/addtour'); // Display the Add Tour form
+    })->name('add_tour');
+
+
+    Route::get('/admindashboard', function () {
+        return view('admindashboard');
+    })->name('admindashboard');
+    // Add other admin routes as needed
+
+    Route::get('/admin/edit_tour/{id}', [DashboardController::class, 'editTour'])->name('edit_tour');
+    Route::post('/admin/update_tour/{id}', [DashboardController::class, 'updateTour'])->name('update_tour');
+    Route::get('/admin/delete_tour/{id}', [DashboardController::class, 'deleteTour'])->name('delete_tour');
+
+    Route::get('/admin/logout', [DashboardController::class, 'logout'])->middleware('auth');
+    Route::post('/admin/logout', [DashboardController::class, 'logout'])->name('admin.logout');
+    Route::post('/logout', [Auth\LoginController::class, 'logout'])->name('logout');
+
+    Route::get('/', [HomeController::class, 'index']); // Replace HomeController::class with the appropriate controller for your home page
+});
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin');
+    })->name('admin.dashboard');
+    Route::get('/admin/add_tour', [DashboardController::class, 'add_tour'])->name('admin.add_tour');
+
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    // Define your admin dashboard route here
+    Route::get('/admin/dashboard/logout', [AdminController::class,'logout'])->name('admin.dashboard.logout');
+});
+
+Route::get('/admin/addbooking', [BookingController::class, 'addbooking'])->name('add_booking');
+Route::get('/admin/add_tour', [DashboardController::class, 'add_tour'])->name('admin.add_tour');
+
+
+
+// Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
+
+
+
+Route::get('/admin/users/edit', function () {
+    return view('admin/users/edit');
+
+});
+
+
 Route::get('/admin/index', [TourController::class, 'index'])->name('admin.index');
 Route::get('/tours/{tours}', [TourController::class, 'show'])->name('tours.show');
 Route::get('/tours/create', [TourController::class, 'create'])->name('tours.create');
@@ -368,16 +292,10 @@ Route::get('/hotels/{id}', 'HotelController@show')->name('hotels.show');
 Route::get('/parks', [ParkController::class, 'index'])->name('parks.index');
 Route::get('/parks/{id}', [ParkController::class, 'show'])->name('parks.show');
 Route::get('/getCounties/{id}','MainController@getcounties');
-// Route::get('/home', [HomeController::class, 'index']);
-// Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 
-Route::middleware(['auth','verified'])->group(function(){
-    Route::get('/profile', 'DashboardController@index')->name('profile.index');
-    Route::get('/profile', [ProfileController::class,'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class,'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class,'destroy'])->name('profile.destroy');
-});
+
+
 
 Route::get('verify-email/{token}', [AuthController::class, 'verifyEmail'])->name('verify.email');
 require __DIR__.'/auth.php';
@@ -399,19 +317,12 @@ Route::get('/email/verification-notification', function(Request $request){
 
 
 
-
-Route::get('profile', function () {
-    $user = User::find(1); // Replace with the logic to fetch the user you want to display
-    return view('admin.profile', compact('user'));
-})->name('profile');
-Route::middleware(['auth'])->group(function () {
-    // Route::get('/profile', 'DashboardController@index')->name('profile.index');
-});
-
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
     Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
 
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
 
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::get('/admin/tours', [UserController::class, 'store'])->name('admin.tours.store');
@@ -440,86 +351,17 @@ Route::put('/users/{id}/role', [UserController::class, 'assignRole']);
 Route::get('/users/{id}', [UserController::class, 'getUser']);
 
 
-
-Route::get('/payment/index', [PaymentController::class, 'index'])->name('payments.index');
-
-
-Route::get('/payment/create', [PaymentController::class, 'create'])->name('payments.create');
-Route::post('/payment', [PaymentController::class, 'store'])->name('payments.store');
-
-Route::get('/payment', [PaymentController::class, 'index'])->name('payments.index');
-Route::get('/payment/{payment}', [PaymentController::class, 'show'])->name('payments.show');
-Route::get('/payment/{payment}/edit', [PaymentController::class, 'edit'])->name('payments.edit');
-Route::put('/payment/{payment}', [PaymentController::class, 'update'])->name('payments.update');
-Route::delete('/payment/{payment}', [PaymentController::class, 'destroy'])->name('payments.destroy');
-
-// routes/web.php
-
-Route::get('/dashboard/cart', [DashboardController::class,'cart'])->name('dashboard.cart');
-Route::get('/dashboard/checkout', [DashboardController::class,'checkout'])->name('dashboard.checkout');
-Route::post('/dashboard/addToCart/{tour}', [DashboardController::class,'addToCart'])->name('dashboard.addToCart');
-Route::post('/dashboard/updateCart/{item}', [DashboardController::class,'updateCart'])->name('dashboard.updateCart');
-Route::post('/dashboard/removeFromCart/{item}', [DashboardController::class,'removeFromCart'])->name('dashboard.removeFromCart');
-
-
-
-
-
-// Route::get('/admin', function () {
-//     if(session()->has('name') ){
-//         if(Session::get('name')['rank']=="admin"){
-//             $collection = DB::table('users')->where('role', 'admin')->get();
-//             $array = $collection->pluck('name');
-
-//             //$waiters = DB::table('active_waiters')->get();
-//             $collection2 = DB::table('add_tours')->get();
-//             $array1 = $collection2->pluck('name');
-
-//             $v=$array->toArray();
-//             $vv=$array1->toArray();
-
-//             $result=array_intersect($v,$vv);
-//             $result2=array_diff($v, $vv);
-
-//         return view('admin', compact('result','result2'));
-//         }
-//         else{
-//             return redirect ('login');
-//         }
-
-//     }
-//     else{
-//         return redirect ('login');
-//     }
-
-
-// });
-
-// Route::get('/dashboard.addtour', function () {
-//     return view('dashboard.addtour');
-// })->name('dashboard.addtour');
-Route::post('/addtour', [DashboardController::class, 'add_tour'])->name('add_tour');
-Route::post('/logout',function(){
-
-        // Auth::logout();
-        Session::flush();
-        return redirect('login');
-
-
-});
-
-
-
 Route::group(['middleware' => ['auth:sanctum', 'role:user']], function(){
     Route::get('/dashboard/profile', [ProfileController::class, 'index'])->name('dashboard.profile');
     Route::post('/logout', [AuthController::class, 'logout']);
         Route::post('/delete-account', [AuthController::class, 'softDeleteAccount']);
 });
+Route::get('/admin/addtour', [DashboardController::class, 'addtour'])->name('admin.add_tour');
 
 
 Route::group(['middleware' => ['auth:sanctum', 'role:admin']], function(){
-    Route::get('/admin/dashboard/addtour', [AdminController::class, 'index'])->name('admin.dashboard.profile');
-    Route::get('/admin/addtour', [DashboardController::class, 'add_tour'])->name('admin.addtour');
+    // Route::get('/admin/dashboard/addtour', [AdminController::class, 'index'])->name('admin.dashboard.profile');
+    // Route::get('/admin/addtour', [DashboardController::class, 'add_tour'])->name('admin.addtour');
     
 
     Route::post('/logout', [AuthController::class, 'logout']);});

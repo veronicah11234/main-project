@@ -30,35 +30,28 @@ class DashboardController extends Controller
             $fileNametostore = "noimage.jpg";
         }
     
-        try {
-            $tour = $tourModel->create([
-                'name' => $request->name,
-                'description' => $request->description,
-                'image' => $fileNametostore,
-                'price' => $request->price,
-            ]);
-            $formData = [
-                'name' => $request->input('name'),
-                'description' => $request->input('description'),
-                'image' => $request->input('image'),
-                'price' => $request->input('price'),
-        
-            ];
-
-            $request->session()->put('tourFormData', $formData);
-
+        $tour = $tourModel->create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $fileNametostore,
+            'price' => $request->price,
+        ]);
     
-            return redirect('/admin/edit')->with("success", 'Tour added successfully');
-        } catch (\Exception $exception) {
-            if ($exception->getCode() === '23000') {
-                // Duplicate entry error
-                return redirect()->back()->withInput()->withErrors(['email' => 'The email address is already in use. Please choose a different email.']);
-            } else {
-                // Other database-related error
-                return redirect()->back()->withInput()->withErrors(['error' => 'An error occurred. Please try again later.']);
-            }
-        }
+        $formData = [
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'image' => $request->input('image'),
+            'price' => $request->input('price'),
+        ];
+    
+        $request->session()->put('tourFormData', $formData);
+    
+        // You can remove the redirection here, or replace it with any other action you want
+        // return redirect('/admin/edit')->with("success", 'Tour added successfully');
     }
+    
+    
+    
 
 
     public function edit($id)
@@ -70,92 +63,52 @@ class DashboardController extends Controller
     $tours = Tour::all();
 
     // Pass both $selectedTour and $tours to the view
-    return view('admin.edit', compact('selectedTour', 'tours'));
-}
+//     return view('admin.edit', compact('selectedTour', 'tours'));
+// }
     
-    private function uploadImage($image) {
-        // Get filename with extension
-        $filenamewithext = $image->getClientOriginalName();
-        // Get filename only
-        $filename = pathinfo($filenamewithext, PATHINFO_FILENAME);
-        // Get extension
-        $extension = $image->getClientOriginalExtension();
-        // Filename to store
-        $fileNametostore = $filename . '_' . time() . '.' . $extension;
-        // Upload the file
-        $path = $image->storeAs('public/image', $fileNametostore);
+//     private function uploadImage($image) {
+//         // Get filename with extension
+//         $filenamewithext = $image->getClientOriginalName();
+//         // Get filename only
+//         $filename = pathinfo($filenamewithext, PATHINFO_FILENAME);
+//         // Get extension
+//         $extension = $image->getClientOriginalExtension();
+//         // Filename to store
+//         $fileNametostore = $filename . '_' . time() . '.' . $extension;
+//         // Upload the file
+//         $path = $image->storeAs('public/image', $fileNametostore);
     
-        return $fileNametostore;
+//         return $fileNametostore;
+//     }
+//     public function add_user(Request $request){
+//         $validated_input = $request->validate([
+//             'name' => 'required | min: 3 | max: 10',
+//             'tel'=>'required',
+//             'email' => 'required',
+//             'password' => 'required | min: 6'
+//         ]);
+
+//         try {
+
+//             User::create(array(
+//                 'name' => $request->name, 
+//                 'tel'=>$request->tel,
+//                 'email' => $request->email,
+//                 'password' => bcrypt($request->password),
+//             ));
+//             return redirect('/')->with('success', "Signup successful");
+//         } catch (QueryException $exception) {
+//             if ($exception->getCode() === '23000') {
+//                 // Duplicate entry error
+//                 return redirect()->back()->withInput()->withErrors(['email' => 'The email address is already in use. Please choose a different email.']);
+//             } else {
+//                 // Other database-related error
+//                 return redirect()->back()->withInput()->withErrors(['error' => 'An error occurred. Please try again later.']);
+//             }
+//         }
+
     }
-    public function add_user(Request $request){
-        $validated_input = $request->validate([
-            'name' => 'required | min: 3 | max: 10',
-            'tel'=>'required',
-            'email' => 'required',
-            'password' => 'required | min: 6'
-        ]);
-
-        try {
-
-            User::create(array(
-                'name' => $request->name, 
-                'tel'=>$request->tel,
-                'email' => $request->email,
-                'password' => bcrypt($request->password),
-            ));
-            return redirect('/')->with('success', "Signup successful");
-        } catch (QueryException $exception) {
-            if ($exception->getCode() === '23000') {
-                // Duplicate entry error
-                return redirect()->back()->withInput()->withErrors(['email' => 'The email address is already in use. Please choose a different email.']);
-            } else {
-                // Other database-related error
-                return redirect()->back()->withInput()->withErrors(['error' => 'An error occurred. Please try again later.']);
-            }
-        }
-
-    }
-    public function view_cart(Request $request){
-        $collection = DB::table('tours')->where('id', Session::get('name')['id'])->get(); 
-
-        return view('cart',compact('collection'));
-    }
-
-    public function delete_tour(Request $request){
-        DB::table('tour')->where('id', $request['id'])->delete();
-        return redirect('/cart');
-    }
-
-    public function alter_cart(Request $request){
-        $collection= DB::table('tours')->where('id', $request['id'])->first();
-        $newtour=$collection->tour+1;
-        echo $newtour;
-        // DB::table('users')
-        // ->where('email', $userEmail)  // find your user by their email
-        // ->limit(1)  // optional - to ensure only one record is updated.
-        // ->update(array('member_type' => $plan));  // update the record in the DB.
-
-        DB::table('tours')->where('id', $request['id'])->update(['tour'=>$newtour]);
-        return redirect('/cart');
-    }
-    public function alter_cartt(Request $request){
-        $collection= DB::table('tour')->where('id', $request['id'])->first();
-        $newtour=$collection->tour-1;
-        echo $newtour;
-        // DB::table('users')
-        // ->where('email', $userEmail)  // find your user by their email
-        // ->limit(1)  // optional - to ensure only one record is updated.
-        // ->update(array('member_type' => $plan));  // update the record in the DB.
-
-        DB::table('tour')->where('id', $request['id'])->update(['tour'=>$newtour]);
-        $collection= DB::table('tour')->where('id', $request['id'])->first();
-        if($collection->tour<1){
-            DB::table('tour')->where('id', $request['id'])->delete();
-            return redirect('/cart');
-        }
-
-        return redirect('/cart');
-    }
+  
    
     public function logout(): JsonResponse
     {
@@ -174,13 +127,11 @@ class DashboardController extends Controller
             $errorMessage = $e->getMessage(); // Get the specific error message
             Log::error($errorMessage); // Log the error message for debugging purposes
     
-            // You can also return an error message if needed
-            // return response()->json(['error' => $errorMessage], 500);
-    
-            // Redirect to the home page upon error
+            // Return a JSON response for the error
             return response()->json(['error' => 'An error occurred. Please try again later.'], 500);
         }
     }
+    
 }    
 
 

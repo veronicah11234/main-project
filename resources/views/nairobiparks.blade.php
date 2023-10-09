@@ -209,10 +209,10 @@
         <div class="col-lg-4">
           <h4>Follow Us</h4>
           <div class="social-icons">
-                    <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a><br>
-                    <a href="https://www.google.com"><i class="fab fa-google"></i></a><br>
-                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a><br>
-                    <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a><br>
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.google.com"><i class="fab fa-google"></i></a>
+                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
                 </div>
         </div>

@@ -47,16 +47,16 @@ class AdminController extends Controller
                 return response()->json(['error' => $errorMessage], 500);
             }
         }
-        public function logout(): JsonResponse
-        {
-            try {
-                // Instead of deleting tokens, you can simply log the user out
-                Auth::logout();
-                return response()->json(['message' => 'You have logged out.'], 200);
-            } catch (\Exception $e) {
-                $errorMessage = $e->getMessage();
-                Log::error($errorMessage);
-                return response()->json(['error' => $errorMessage], 500);
-            }
-        }
+        // public function logout(): JsonResponse
+        // {
+        //     try {
+        //         // Instead of deleting tokens, you can simply log the user out
+        //         Auth::logout();
+        //         return response()->json(['message' => 'You have logged out.'], 200);
+        //     } catch (\Exception $e) {
+        //         $errorMessage = $e->getMessage();
+        //         Log::error($errorMessage);
+        //         return response()->json(['error' => $errorMessage], 500);
+        //     }
+        // }
 }

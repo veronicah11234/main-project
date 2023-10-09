@@ -3,8 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                {{-- @extends('dashboard') <!-- Include the sidebar --> --}}
-                @extends('navigation') <!-- Include the sidebar -->
+                {{-- @extends('navigation') <!-- Include the sidebar --> --}}
 
 
                 @extends('layouts.app')
@@ -53,7 +52,7 @@
                     </div>
 
                     <input type="hidden" name="stored_data" value="1">
-                    <button type="submit" class="btn btn-primary">Add Booking</button>
+                    <button type="submit" class="btn btn-primary">Add Book</button>
                 </form>
             </div>
         </div>
