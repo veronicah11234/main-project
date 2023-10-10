@@ -72,7 +72,7 @@
                 <div class="text">
                     <h1>Welcome to Our Hotel</h1><br>
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="check_in_date" style=" color:rgb(245, 245, 17);">Check-in Date:</label>
                     <input type="date" id="check_in_date" name="check_in_date">
                 </div><br>
@@ -97,7 +97,7 @@
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
             </select>
-        </div>
+        </div> --}}
                 <div class="submit-button">
                     <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
                 </div>

@@ -5,6 +5,36 @@
 @section('content')
 <button onclick="window.location.href = '{{ route('admin') }}'">Go Back</button>
 
+<style>
+    .action-link {
+        color: #007BFF; /* Link text color */
+        text-decoration: none; /* Remove default underline */
+        margin-right: 10px; /* Spacing between links */
+    }
+
+    .action-link:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
+    a{
+        text-decoration:none;
+    }
+
+    .action-button {
+        background-color: #DC3545; /* Button background color */
+        color: #fff; /* Button text color */
+        border: none; /* Remove button border */
+        padding: 5px 10px; /* Adjust padding as needed */
+        cursor: pointer;
+        border-radius: 5px; /* Rounded corners */
+        margin-right: 10px; /* Spacing between buttons */
+    }
+
+    .action-button:hover {
+        background-color: #BD2130; /* Button background color on hover */
+    }
+</style>
+
+
    
 <div class="container">
     <h2>Add a New Park</h2>
@@ -53,6 +83,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Image</th>
                     <th>Price</th>
                     <th>Actions</th>
                 </tr>
@@ -63,23 +94,24 @@
                         <td>{{ $tour->id }}</td>
                         <td>{{ $tour->name }}</td>
                         <td>{{ $tour->description }}</td>
+                        <td>{{ $tour->image }}</td>
                         <td>{{ $tour->price }}</td>
                         <td>
-                            <a href="{{ route('admin.show_tour', ['id' => $tour->id]) }}">View</a> |
-                            <a href="{{ route('admin.edit', ['id' => $tour->id]) }}">Edit</a> |
+                           <a href="{{ route('admin.show_tour', ['id' => $tour->id]) }}" class="action-button" style="background-color: #007BFF;">View</a>|<br>
+                            {{-- <a href="{{ route('admin.edit', ['id' => $tour->id]) }}" class="action-link">Edit</a> | --}}
                             <form action="{{ route('admin.destroy', ['id' => $tour->id]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">Delete</button>
+                                <button type="submit" class="action-button">Delete</button>
                             </form>
+                            
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        
-        
-        
+
+      
         
         
         
@@ -89,10 +121,14 @@
         <div class="container">
             <h2>Tour Details</h2>
             <p><strong>Name:</strong> {{ $selectedTour->name }}</p>
-            <p><strong>Price:</strong> {{ $selectedTour->price }}</p>
             {{-- <p><strong>Availability:</strong> {{ $selectedTour->availability }}</p> --}}
             <p><strong>Description:</strong> {{ $selectedTour->description }}</p>
+            {{-- <p><strong>Image:</strong> {{ $selectedTour->image }}</p> --}}
+            <p><strong>Price:</strong> {{ $selectedTour->price }}</p>
+
+
         </div>
     @endif
 
 @endsection
+

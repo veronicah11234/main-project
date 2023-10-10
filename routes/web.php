@@ -422,8 +422,8 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 Route::get('/admin/users/{user}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
 Route::put('/admin/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
 Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy'); 
-Route::get('/profile', 'ProfileController@show')->name('profile.show');
-Route::patch('/profile/update', 'ProfileController@update')->name('profile.update');
+Route::get('/profile', [ProfileController::class,'show'])->name('profile.show');
+Route::patch('/profile/update', [ProfileController::class,'update'])->name('profile.update');
 
 });
 Route::get('/users', 'UserController@index')->name('users.index');
@@ -444,10 +444,15 @@ Route::post('/logout',function(){
 
         // Auth::logout();
         Session::flush();
-        return redirect('register');
+        return redirect('home');
 
 
 });
+
+Route ::get('/logout', function(){
+    return view('home');
+})->middleware('auth')->name('logout');
+
 
 Route::group(['middleware' => ['auth:sanctum', 'role:user']], function(){
     Route::get('/dashboard/profile', [ProfileController::class, 'index'])->name('dashboard.profile');

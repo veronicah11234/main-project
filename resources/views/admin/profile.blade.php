@@ -20,7 +20,7 @@
                     </div>
                     <hr>
                     <p><strong>First Name:</strong> {{ $user->first_name }} miriam</p>
-                    {{-- <p><strong>Last Name:</strong> {{ $user->last_name }}njeri</p> --}}
+                    <p><strong>Last Name:</strong> {{ $user->last_name }}njeri</p>
                     <!-- Add more profile fields here -->
                 </div>
             </div>
