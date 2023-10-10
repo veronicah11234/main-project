@@ -1,17 +1,10 @@
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                {{-- @extends('navigation') <!-- Include the sidebar --> --}}
-
-
-                @extends('layouts.app')
-
-            </div>
             <div class="col-md-9">
-
-                <h1 class="mb-4">Add New Booking</h1>
+                <h1 class="mb-4">Add New Tour</h1>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -52,8 +45,12 @@
                     </div>
 
                     <input type="hidden" name="stored_data" value="1">
-                    <button type="submit" class="btn btn-primary">Add Book</button>
+                    <button type="submit" class="btn btn-primary">Add Tour</button>
                 </form>
+            </div>
+
+            <div class="col-md-3">
+                @extends('admin.dashboard') <!-- Include the sidebar -->
             </div>
         </div>
     </div>

@@ -147,6 +147,32 @@
             </div>
     
         </div>
-         
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Contact Information</h4>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:miwamu@gmail.com">miwamu@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> Phone: <a href="tel:+254790641428">+254 790 641 428</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.google.com"><i class="fab fa-google"></i></a>
+                            <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Address</h4>
+                        <p><i class="fas fa-map-marker"></i> 123 Park Street, City</p>
+                        <p><i class="fas fa-globe-africa"></i> Kenya, +254</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
 </body>
 </html>

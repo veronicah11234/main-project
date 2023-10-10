@@ -33,7 +33,7 @@ public function create(Request $request)
 public function showTours()
 {
     $tours = Tour::all(); // Replace with your actual query to retrieve tours
-    return view('admin.add_tour', compact('tours'));
+    return view('admin.addtour', compact('tours'));
 }
 
 
@@ -97,51 +97,64 @@ public function update(Request $request, $id)
     }
 
 
+//     public function nakuruparks($tourId)
+// {
+//     // Fetch data from the database based on the $tourId parameter
+//     $tour = Tour::find($tourId);
 
-
-// public function addTour(Request $request, Tour $tourModel) {
-//     $validated_input = $request->validate([
-//         'name' => 'required',
-//         'description' => 'required',
-//         'image' => 'required|image',
-//         'price' => 'required|numeric',
-//     ]);
-
-//     // Image upload logic
-//     if ($request->hasFile('image')) {
-//         $fileNametostore = $this->uploadImage($request->file('image'));
-//     } else {
-//         $fileNametostore = "noimage.jpg";
+//     // Check if the data exists before passing it to the view
+//     if (!$tour) {
+//         abort(404); // Or handle the case when data is not found
 //     }
 
-//     try {
-//         $tour = $tourModel->create([
-//             'name' => $request->name,
-//             'description' => $request->description,
-//             'image' => $fileNametostore,
-//             'price' => $request->price,
-//         ]);
-//         $formData = [
-//             'name' => $request->input('name'),
-//             'description' => $request->input('description'),
-//             'image' => $request->input('image'),
-//             'price' => $request->input('price'),
-    
-//         ];
+//     $tour = Tour::all(); // Fetch all tours
 
-//         $request->session()->put('tourFormData', $formData);
-
-//         return redirect('/admin/edit')->with("success", 'Tour added successfully');
-//     } catch (\Exception $exception) {
-//         if ($exception->getCode() === '23000') {
-//             // Duplicate entry error
-//             return redirect()->back()->withInput()->withErrors(['email' => 'The email address is already in use. Please choose a different email.']);
-//         } else {
-//             // Other database-related error
-//             return redirect()->back()->withInput()->withErrors(['error' => 'An error occurred. Please try again later.']);
-//         }
-//     }
+//     return view('nakuruparks', ['tour' => $tour, 'tours' => $tour]);
 // }
+
+public function addTour(Request $request, Tour $tourModel) {
+    $validated_input = $request->validate([
+        'name' => 'required',
+        'description' => 'required',
+        'image' => 'required|image',
+        'price' => 'required|numeric',
+    ]);
+
+    // Image upload logic
+    if ($request->hasFile('image')) {
+        $fileNametostore = $this->uploadImage($request->file('image'));
+    } else {
+        $fileNametostore = "noimage.jpg";
+    }
+
+    try {
+        $tour = $tourModel->create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $fileNametostore,
+            'price' => $request->price,
+        ]);
+        $formData = [
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'image' => $request->input('image'),
+            'price' => $request->input('price'),
+    
+        ];
+
+        $request->session()->put('tourFormData', $formData);
+
+        return redirect('/admin/edit')->with("success", 'Tour added successfully');
+    } catch (\Exception $exception) {
+        if ($exception->getCode() === '23000') {
+            // Duplicate entry error
+            return redirect()->back()->withInput()->withErrors(['email' => 'The email address is already in use. Please choose a different email.']);
+        } else {
+            // Other database-related error
+            return redirect()->back()->withInput()->withErrors(['error' => 'An error occurred. Please try again later.']);
+        }
+    }
+}
 
 private function uploadImage($image) {
     // Get filename with extension
@@ -156,7 +169,36 @@ private function uploadImage($image) {
     $path = $image->storeAs('public/image', $fileNametostore);
 
     return $fileNametostore;
-}       
+}
+public function add_user(Request $request){
+    $validated_input = $request->validate([
+        'name' => 'required | min: 3 | max: 10',
+        'tel'=>'required',
+        'email' => 'required',
+        'password' => 'required | min: 6'
+    ]);
+
+    try {
+
+        User::create(array(
+            'name' => $request->name, 
+            'tel'=>$request->tel,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ));
+        return redirect('/')->with('success', "Signup successful");
+    } catch (QueryException $exception) {
+        if ($exception->getCode() === '23000') {
+            // Duplicate entry error
+            return redirect()->back()->withInput()->withErrors(['email' => 'The email address is already in use. Please choose a different email.']);
+        } else {
+            // Other database-related error
+            return redirect()->back()->withInput()->withErrors(['error' => 'An error occurred. Please try again later.']);
+        }
+    }
+
+}
+        
        
 
 
@@ -169,7 +211,32 @@ public function destroy($id)
     // Delete the tour
     $tour->delete();
 
-    return redirect()->route()->with('success', 'Tour deleted successfully');
+    return redirect()->route('admin.edit')->with('success', 'Tour deleted successfully');
+}
+
+public function logout(): JsonResponse
+{
+    try {
+        $user = Auth::user(); // Use Auth facade to get the authenticated user
+        if ($user) {
+            $user->tokens()->delete();
+            Auth::logout(); // Log the user out
+
+            // Return a JSON response
+            return response()->json(['message' => 'You have logged out.'], 200);
+        } else {
+            return response()->json(['message' => 'User not found.'], 404);
+        }
+    } catch (\Exception $e) {
+        $errorMessage = $e->getMessage(); // Get the specific error message
+        Log::error($errorMessage); // Log the error message for debugging purposes
+            return redirect('/admin/edit')->with("success", 'Tour added successfully');
+
+        // Redirect to the home page upon error
+        return response()->json(['error' => 'An error occurred. Please try again later.'], 500);
+        return redirect('/home')->with("success", 'Tour added successfully');
+
+    }
 }
 
 

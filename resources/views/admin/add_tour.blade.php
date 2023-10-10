@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        
+    </style>
 </head>
 <body>
 
@@ -20,7 +23,7 @@
             </div>
             <div class="col-md-9">
 
-                <h1 class="mb-4">Add New Booking</h1>
+                <h1 class="mb-4">Add New Tour</h1>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -38,7 +41,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('add_booking') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('add_tour') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name"> Name</label>
@@ -61,7 +64,7 @@
                     </div>
 
                     <input type="hidden" name="stored_data" value="1">
-                    <button type="submit" class="btn btn-primary">Add Book</button>
+                    <button type="submit" class="btn btn-primary">Add Tour</button>
                 </form>
             </div>
         </div>

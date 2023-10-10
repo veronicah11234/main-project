@@ -257,50 +257,31 @@ video {
 
 <footer class="bg-dark text-white py-4">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <h4>Contact Information</h4>
-          <p>Email: miwamu@gmail.com</p>
-          <p>Phone: 0790641428</p>
-        </div>
-        <div class="col-lg-4">
-          <h4>Follow Us</h4>
-          <nav class="navbar">
-            <div class="container">
-                <div class="navbar-collapse">
-                    <ul class="navbar-nav">
-                        <!-- Social Media Icons -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.tiktok.com"><i class="fab fa-tiktok"></i></a>
-                        </li>
-                        <!-- WhatsApp Chat Link -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://web.whatsapp.com/" target="_blank" id="whatsapp-link">
-                                <i class="fab fa-whatsapp"></i> Chat with us
-                            </a>
-                        </li>
-                    </ul>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Contact Information</h4>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:miwamu@gmail.com">miwamu@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+254790641428">+254 790 641 428</a></p>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.google.com"><i class="fab fa-google"></i></a>
+                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-        </nav>
+            <div class="col-md-4">
+                <h4>Address</h4>
+                <p><i class="fas fa-map-marker"></i> 123 Park Street, City</p>
+                <p><i class="fas fa-globe-africa"></i> Kenya, +254</p>
+            </div>
         </div>
-        <div class="col-lg-4">
-          <h4>Address</h4>
-          <p>123 Park Street, park</p>
-          <p>Kenya, +254</p>
-        </div>
-      </div>
     </div>
-  </footer>
+</footer>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>

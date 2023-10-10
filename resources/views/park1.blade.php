@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css">
     <title>Document</title>
     <style>
-         .image-container img {
-            display: block;
-            width: 2500px;
-            height: 2500px;
-            object-fit: cover;
-            object-position: center;
-        }
+      .image-container img {
+    display: block;
+    max-width: 100%;
+    height: 90%;
+    width: 80%;
+    object-fit: cover;
+    object-position: center;
+}
         table {
             border-collapse: collapse;
             width: 100%;
@@ -290,28 +291,31 @@
 
 <footer class="bg-dark text-white py-4">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <h4>Contact Information</h4>
-          <p>Email: contact@example.com</p>
-          <p>Phone: +1 123-456-7890</p>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Contact Information</h4>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:miwamu@gmail.com">miwamu@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+254790641428">+254 790 641 428</a></p>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.google.com"><i class="fab fa-google"></i></a>
+                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>Address</h4>
+                <p><i class="fas fa-map-marker"></i> 123 Park Street, City</p>
+                <p><i class="fas fa-globe-africa"></i> Kenya, +254</p>
+            </div>
         </div>
-        <div class="col-lg-4">
-          <h4>Follow Us</h4>
-          <ul class="list-unstyled">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Instagram</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4">
-          <h4>Address</h4>
-          <p>123 Park Street, City</p>
-          <p>Country, ZIP Code</p>
-        </div>
-      </div>
     </div>
-  </footer>
+</footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

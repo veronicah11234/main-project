@@ -65,6 +65,49 @@
           font: 1em sans-serif;
         }
 
+        .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.image-container {
+    position: relative;
+    display: block;
+}
+
+.image-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.text {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -76,25 +119,27 @@
         <img src="/images/masaimara.jpg" alt="Images" class="img-fluid">
         <div class="overlay">
             <div class="text">
-                <h1>NGUUNI PARK</h1>
+                <h1>MARA NAIBOISHI PARK</h1>
             </div>
-        </div>flying-safari
+        </div>
     </div><br><br><br>
 
     <div class="container">
         <div class="row">
             <div class="col-8">
-                <p>
-                    The Mara Naboisho Conservancy in southwest Kenya is a dream for wildlife enthusiasts. As well as cheetah, elephant and giraffe, the area has one of the highest concentrations of lion in the world. 
-                </p>
+               
             <img src="/images/amboseeli.jpg" alt="Images" class="img-fluid" style="height: 400px; width:700px;">
     
             </div>
             <div class="col-4">
-             <h1>maasai mara park</h1><br><br>
+                <p>
+                    The Mara Naboisho Conservancy in southwest Kenya is a dream for wildlife enthusiasts. As well as cheetah, elephant and giraffe, the area has one of the highest concentrations of lion in the world. 
+                </p>
+             <h1>Maasai mara park</h1><br>
          <p>
             Masai Mara National Reserve is located in south west Kenya and is a vast scenic expanse of gently rolling African savannah plains measuring 1510 square kilometers in area and bordering the Serengeti National Park in Tanzania to the south. Masai Mara is a unique wildlife conservation haven famous for its spectacular natural diversity of wildlife and is the premier Kenya Safari location in East Africa, offering visitors numerous reasons to visit this animal paradise. Large numbers of Lions, Cheetah, Elephant, Rhino, African Buffalo, Wildebeest, Giraffe, Zebra and many more animals 
             are found in the park in their natural habitat, unconfined and free to roam the vast Kenyan wilderness stretching for miles on end.     </p></div>
+            
         </div>
       </div>
         </div><br>
@@ -187,28 +232,31 @@
 
 <footer class="bg-dark text-white py-4">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <h4>Contact Information</h4>
-          <p>Email: contact@example.com</p>
-          <p>Phone: +1 123-456-7890</p>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Contact Information</h4>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:miwamu@gmail.com">miwamu@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+254790641428">+254 790 641 428</a></p>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.google.com"><i class="fab fa-google"></i></a>
+                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>Address</h4>
+                <p><i class="fas fa-map-marker"></i> 123 Park Street, City</p>
+                <p><i class="fas fa-globe-africa"></i> Kenya, +254</p>
+            </div>
         </div>
-        <div class="col-lg-4">
-          <h4>Follow Us</h4>
-          <ul class="list-unstyled">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Instagram</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4">
-          <h4>Address</h4>
-          <p>123 Park Street, City</p>
-          <p>Country, ZIP Code</p>
-        </div>
-      </div>
     </div>
-  </footer>
+</footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

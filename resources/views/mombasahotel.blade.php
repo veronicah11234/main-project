@@ -57,6 +57,49 @@
     animation: slide 10s infinite 5s;
 }
 
+.container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.image-container {
+    position: relative;
+    display: block;
+}
+
+.image-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.text {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
 
     </style>
     <!-- Add your CSS stylesheets here -->
@@ -74,16 +117,13 @@
                 <div class="text">
                     <h1>Welcome to Our Hotel</h1><br>
                 </div>
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
-                </div>
             </div>
         </div><br><br><br>
 
               <div class="container">
             <div class="row">
                 <div class="col-sm-2">
-                    <div class="filter-card">
+                    {{-- <div class="filter-card">
                         <h3>Filter by:</h3>
                         <div class="form-group">
                             <label for="check_in_date">Check-in Date:</label>
@@ -151,7 +191,7 @@
                                 Pleasant: 6+
                             </label>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-10" >
                     <div class="card mb" style="width: 1000px; height:450px" >
@@ -176,7 +216,7 @@
                                     <p class="price">Price from</p>
                                     <p class="price" style="color:rgb(230, 25, 25)">KES 23,547</p>
                                     <p class="price" style="color:rgb(88, 129, 33)">per night</p>
-                                    <button class="btn btn-success">Check availability</button>
+                                    <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                             </div>
@@ -190,7 +230,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="check_in_date">Check-in Date:</label>
                         <input type="date" id="check_in_date" name="check_in_date">
                     </div><br>
@@ -257,7 +297,7 @@
                                 Pleasant: 6+
                             </label>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-10" >
                     <div class="card mb" style="width: 1000px; height:450px" >
@@ -281,10 +321,8 @@
                                     <p class="price">Price from</p>
                                     <p class="price" style="color:rgb(235, 32, 25)">KES 4,201</p>
                                     <p class="price" style="color:rgb(41, 112, 41)">per night</p>
-                                    <div class="submit-button">
-                                        <button type="submit" class="btn btn-success"><a href="/cart">Add to cart</a></button>
-                                    </div>
-                                    <button class="btn btn-success">See more</button>
+                                    <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
+
                                 </div>
                               <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                             </div>
@@ -298,7 +336,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-2">
-            <div class="filter-card">
+            {{-- <div class="filter-card">
                 <h3>Filter by:</h3>
                 <div class="form-group">
                     <label for="check_in_date">Check-in Date:</label>
@@ -345,7 +383,7 @@
                         Pleasant: 6+
                     </label>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="col-lg-10" >
             <div class="card mb" style="width: 1000px; height:450px" >
@@ -370,7 +408,7 @@
                             <p class="price">Price from</p>
                             <p class="price" style="color:rgb(238, 18, 66)">KES 26,067</p>
                             <p class="price" style="color:rgb(68, 141, 46)">per night</p>
-                            <button class="btn btn-success">Check availability</button>
+                            <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
                         </div>
                       <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                     </div>
@@ -384,7 +422,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-2">
-            <div class="form-group">
+            {{-- <div class="form-group">
                     <label for="check_in_date">Check-in Date:</label>
                     <input type="date" id="check_in_date" name="check_in_date">
                 </div><br>
@@ -409,7 +447,7 @@
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
             </select>
-        </div>
+        </div> --}}
         </div>
         <div class="col-lg-10" >
             <div class="card mb" style="width: 1000px; height:450px" >
@@ -436,7 +474,7 @@
                             <p class="price">Price from</p>
                             <p class="price" style="color:rgb(235, 51, 19)">KES 43,832</p>
                             <p class="price" style="color:rgb(81, 119, 38)">per night</p>
-                            <button class="btn btn-success">Check availability</button>
+                            <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
                         </div>
                       <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                     </div>
@@ -452,7 +490,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-2">
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="check_in_date">Check-in Date:</label>
                 <input type="date" id="check_in_date" name="check_in_date">
             </div><br>
@@ -477,7 +515,7 @@
                 <option value="{{ $i }}">{{ $i }}</option>
             @endfor
         </select>
-    </div>
+    </div> --}}
         </div>
         <div class="col-lg-10" >
             <div class="card mb" style="width: 1000px; height:450px" >
@@ -502,7 +540,7 @@
                             <p class="price">Price from</p>
                             <p class="price" style="color:rgb(236, 20, 12)">KES 10,318</p>
                             <p class="price" style="color:rgb(33, 73, 29)">per night</p>
-                            <button class="btn btn-success">Check availability</button>
+                            <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
                         </div>
                       <p class="card-text"><small class="text-body-secondary">Last updated 5 mins ago</small></p>
                     </div>
@@ -519,7 +557,33 @@
                 <iframe width="548" height="420" src="https://www.youtube.com/embed/tHBnQCCKKgQ" title="Top 10 Best Hotels In Naivasha Kenya | Best Hotels To Stay In Naivasha" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> --}}
             </div>
         </div>
-
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Contact Information</h4>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:miwamu@gmail.com">miwamu@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> Phone: <a href="tel:+254790641428">+254 790 641 428</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.google.com"><i class="fab fa-google"></i></a>
+                            <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Address</h4>
+                        <p><i class="fas fa-map-marker"></i> 123 Park Street, City</p>
+                        <p><i class="fas fa-globe-africa"></i> Kenya, +254</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
    
     <!-- Add your JavaScript scripts here -->
 </body>

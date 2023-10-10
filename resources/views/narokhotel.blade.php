@@ -80,7 +80,7 @@
               <div class="container">
             <div class="row">
                 <div class="col-sm-2">
-                    <div class="filter-card">
+                    {{-- <div class="filter-card">
                         <h3>Filter by:</h3>
                         <div class="form-group">
                             <label for="check_in_date">Check-in Date:</label>
@@ -148,7 +148,7 @@
                                 Pleasant: 6+
                             </label>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-10" >
                     <div class="card mb" style="width: 1000px; height:450px" >
@@ -187,7 +187,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="check_in_date">Check-in Date:</label>
                         <input type="date" id="check_in_date" name="check_in_date">
                     </div><br>
@@ -254,7 +254,7 @@
                                 Pleasant: 6+
                             </label>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-10" >
                     <div class="card mb" style="width: 1000px; height:450px" >
@@ -291,7 +291,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-2">
-            <div class="filter-card">
+            {{-- <div class="filter-card">
                 <h3>Filter by:</h3>
                 <div class="form-group">
                     <label for="check_in_date">Check-in Date:</label>
@@ -338,7 +338,7 @@
                         Pleasant: 6+
                     </label>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="col-lg-10" >
             <div class="card mb" style="width: 1000px; height:450px" >
@@ -377,7 +377,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-2">
-            <div class="form-group">
+            {{-- <div class="form-group">
                     <label for="check_in_date">Check-in Date:</label>
                     <input type="date" id="check_in_date" name="check_in_date">
                 </div><br>
@@ -402,7 +402,7 @@
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
             </select>
-        </div>
+        </div> --}}
         </div>
         <div class="col-lg-10" >
             <div class="card mb" style="width: 1000px; height:450px" >
@@ -443,7 +443,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-2">
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="check_in_date">Check-in Date:</label>
                 <input type="date" id="check_in_date" name="check_in_date">
             </div><br>
@@ -468,7 +468,7 @@
                 <option value="{{ $i }}">{{ $i }}</option>
             @endfor
         </select>
-    </div>
+    </div> --}}
         </div>
         <div class="col-lg-10" >
             <div class="card mb" style="width: 1000px; height:450px" >
@@ -502,6 +502,7 @@
         </div>
     </div>
 </div><br><br>
+
                 <!-- Replace "YOUR_YOUTUBE_EMBED_CODE" with the actual iframe code you obtained from YouTube -->
                 <iframe width="548" height="420" src="https://www.youtube.com/embed/UynomjInieE" title="Best Hotels In Nakuru - For Families, Couples, Work Trips, Luxury &amp; Budget" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <iframe width="548" height="420" src="https://www.youtube.com/embed/iZYt95tyEuU" title="Enashipai | Lake Naivasha" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br>
@@ -509,7 +510,33 @@
                 <iframe width="548" height="420" src="https://www.youtube.com/embed/tHBnQCCKKgQ" title="Top 10 Best Hotels In Naivasha Kenya | Best Hotels To Stay In Naivasha" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> --}}
             </div>
         </div>
-
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Contact Information</h4>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:miwamu@gmail.com">miwamu@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> Phone: <a href="tel:+254790641428">+254 790 641 428</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.google.com"><i class="fab fa-google"></i></a>
+                            <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Address</h4>
+                        <p><i class="fas fa-map-marker"></i> 123 Park Street, City</p>
+                        <p><i class="fas fa-globe-africa"></i> Kenya, +254</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
    
     <!-- Add your JavaScript scripts here -->
 </body>

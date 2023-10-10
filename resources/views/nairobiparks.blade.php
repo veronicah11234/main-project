@@ -20,6 +20,48 @@
                 margin: 0;
                 padding: 0;
         }
+        .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.image-container {
+    position: relative;
+    display: block;
+}
+
+.image-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.text {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
 
     </style>
 </head>
@@ -40,7 +82,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
-               <div class="filter-card">
+               {{-- <div class="filter-card">
                     <div class="filter-options">
                         <h4>Price:</h4>
                         <label class="checkbox">
@@ -80,7 +122,7 @@
                 </div>
         
                     <!-- Add more filter options as needed -->
-            </div>
+            </div> --}}
             </div>
             <div class="col-lg-10" >
                 <div class="card mb" style="width: 1000px; height:450px" >
@@ -120,7 +162,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
-                <div class="filter-card">
+                {{-- <div class="filter-card">
                     <div class="filter-options">
                         <label class="checkbox">
                             <h4>    Property rating:</h2>
@@ -161,7 +203,7 @@
                             Pleasant: 6+
                         </label>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="col-lg-10" >
                 <div class="card mb" style="width: 1000px; height:450px" >
@@ -174,7 +216,7 @@
                          <div class="card-description">
                             <h1 class="card-title">Nairobi National Park Tours and Tickets</h1>
                             <p class="card-text">Located just south of the city, Nairobi National Park is Kenya’s first game reserve and the only protected area in the world that sits so close to a nation’s capital. 
-                                Visitors to the vast wildlife park are likely to spot black rhinos, lions, giraffe, and zebra, as well as some 400 bird species.<a href="/nairobipark1">see more</a></p></p>
+                                Visitors to the vast wildlife park are likely to spot black rhinos, lions, giraffe, and zebra, as well as some 400 bird species.<a href="/nairobipark2">see more</a></p></p>
                                 <div class="rating">
                                     <p style="color:rgb(70, 131, 8)">9.3</p>
                                     <p style="color:rgb(70, 131, 8)">345 reviews</p>
@@ -198,32 +240,33 @@
     </div>
 
 
-<footer class="bg-dark text-white py-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <h4>Contact Information</h4>
-          <p>Email: miwamu@gmail.com</p>
-          <p>Phone: 0790641428</p>
-        </div>
-        <div class="col-lg-4">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-                    <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.google.com"><i class="fab fa-google"></i></a>
-                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Contact Information</h4>
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:miwamu@gmail.com">miwamu@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i> Phone: <a href="tel:+254790641428">+254 790 641 428</a></p>
                 </div>
+                <div class="col-md-4">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.google.com"><i class="fab fa-google"></i></a>
+                        <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Address</h4>
+                    <p><i class="fas fa-map-marker"></i> 123 Park Street, City</p>
+                    <p><i class="fas fa-globe-africa"></i> Kenya, +254</p>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4">
-          <h4>Address</h4>
-          <p>123 Park Street, City</p>
-          <p>Kenya, +254</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+    
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>

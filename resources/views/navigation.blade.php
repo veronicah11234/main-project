@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{{-- <!DOCTYPE html> --}}
+{{-- <html lang="en"> --}}
+{{-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,15 +10,15 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: blue;
+            /* background-color: blue; */
         }
-        .wrapper{
+        /* .wrapper{
             background-color: #f4f4f4;
-        }
-        .search{
+        } */
+        /* .search{
             width: 50%;
             margin: 0 auto;
-        }
+        } */
     
         .container {
             display: flex;
@@ -62,22 +62,24 @@
         }
     </style>
 </head>
-<body>
-    <div class="wrapper">
+<body> --}}
+    {{-- <div class="wrapper">
         <div class="search">
             <form action="">
                 <input type="text" placeholder="Search">
                 <input type="submit" value="submit">
             </form>
-        </div>
-<nav>
+        </div> --}}
+{{-- <nav>
     
         <ul>
-            <li><a href="{{ route('admin.add_tour') }}">Add Tour</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.add_tour') }}">Add Tour</a>
+            </li>            
             <li><a href="{{ route('add_booking') }}">Add Booking</a></li>
             <li><a href="{{ route('admin.logout') }}">Logout</a></li>
         </ul>
- </nav> 
-
+ </nav>  --}}
+{{-- 
 </body>
-</html>
+</html> --}}

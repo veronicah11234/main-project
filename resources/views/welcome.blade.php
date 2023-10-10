@@ -137,7 +137,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/narokparks">Parks</a></li>
-                            <li><a class="dropdown-item" href="/naroksafaris">Safaris</a></li>
+                            <li><a class="dropdown-item" href="/maasaimara">Safaris</a></li>
                         </ul>
                     </li>
 

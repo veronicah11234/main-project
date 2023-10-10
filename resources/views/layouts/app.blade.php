@@ -19,7 +19,7 @@
     <body class="font-sans antialiased">
         {{-- <div class="min-h-screen bg-gray-100"> --}}
             {{-- @include('layouts.navigation') --}}
-            @include('navigation')
+            {{-- @include('navigation') --}}
 
             <div class="container">
                 @yield('content')
@@ -40,7 +40,7 @@
 
 
 @else
-    <a href="{{ route('login') }}">Login</a>
+    {{-- <a href="{{ route('login') }}">Login</a> --}}
 @endauth
 
         </div>
