@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -23,7 +25,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'role', // Add the 'role' field
-        'permissions', // Add the 'permissions' field
+        'permissions', // Add the 'permissions' field'
+        'first_name',
+
     ];
 
     /**
@@ -46,7 +50,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'permissions' => 'json', // Cast 'permissions' as JSON
     ];
 
+    
     /**
+     * 
      * The attributes that should be mutated to dates.
      *
      * @var array
@@ -63,10 +69,13 @@ class User extends Authenticatable implements MustVerifyEmail
      return $this->belongsToMany(Role::class);
  }
 
- public function cartItems()
-    {
-        return $this->hasMany(CartItem::class);
-    }
+ public function profile()
+ {
+     $user = Auth::user();
+     return view('profile', ['user' => $user]);
+ }
+ 
+
 
 
 }

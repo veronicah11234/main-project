@@ -67,7 +67,8 @@ nav li.active {
     <div class="sidebar">
         <nav>
             <ul>
-                <li><a href="{{ route('admin.addtour') }}">Add Tour</a></li>
+                <li><a href="{{ route('dashboard') }}">Add Tour</a></li>
+                {{-- <li><a href="{{ route('edit_tour') }}">Edit Tour</a></li> --}}
                 <li><a href="{{ route('add_booking') }}">Add Booking</a></li>
                 <li><a href="{{ route('admin.logout') }}">Logout</a></li>
             </ul>

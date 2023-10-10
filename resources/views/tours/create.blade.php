@@ -27,8 +27,10 @@
                 <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Create Tour</button>
-        </form>
+            <div class="submit-button">
+                <button type="submit" class="btn btn-success"><a href="/edit_tour">edit now</a></button>
+            </div>    
+            </form>
 
         <br>
         <a href="{{ route('tours.index') }}" class="btn btn-secondary">Back to All Tours</a>

@@ -3,20 +3,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class Profile extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'first_name',
-        'avatar',
-        'bio',
+        'name',
+        'email',
+        'password',
+        'first_name', // Add first name field
+        'last_name',  // Add last name field
+        'avatar',     // Add avatar field
     ];
-
     public function user()
     {
-        return $this->hasOne(Profile::class);
+        return $this->belongsTo(User::class);
     }
 }

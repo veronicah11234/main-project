@@ -28,33 +28,33 @@
                 @if ($errors->any())
                     <div clas<!-- tours.blade.php -->
 
-@extends('layouts.app') {{-- You can extend your app layout if needed --}}
-
-@section('content')
-<div class="container">
-    <h1>Tours</h1>
-
-    <table>
-        <!-- Iterate through your tours -->
-        @foreach ($tours as $tour)
-            <tr>
-                <td>{{ $tour->name }}</td>
-                <td>{{ $tour->description }}</td>
-                <td>{{ $tour->price }}</td>
-                <td>
-                    <a href="{{ route('edit_tour', ['id' => $tour->id]) }}">Edit</a>
-                    <form action="{{ route('delete_tour', ['id' => $tour->id]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-    </table>
-</div>
-@endsection
-s="alert alert-danger">
+                        @extends('layouts.app') {{-- You can extend your app layout if needed --}}
+                        
+                        @section('content')
+                        <div class="container">
+                            <h1>Tours</h1>
+                        
+                            <table>
+                                <!-- Iterate through your tours -->
+                                @foreach ($tours as $tour)
+                                    <tr>
+                                        <td>{{ $tour->name }}</td>
+                                        <td>{{ $tour->description }}</td>
+                                        <td>{{ $tour->price }}</td>
+                                        <td>
+                                            <a href="{{ route('edit_tour', ['id' => $tour->id]) }}">Edit</a>
+                                            <form action="{{ route('delete_tour', ['id' => $tour->id]) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                        @endsection
+                        s="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>

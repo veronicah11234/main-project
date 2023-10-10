@@ -10,10 +10,22 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\UserRole;
 use Illuminate\Support\Facades\Log;
+use App\Models\Admin;
+
 
 class AdminController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
+   
+    public function index()
+    {
+        // Retrieve a list of admin users from the database using the Admin model
+        $users = Admin::all();
+
+        // Pass the data to the view and render it
+        return view('admin.index', ['users' => $users]);
+    }
+    
     public function dashboard()
     {
         return view('admin.dashboard');

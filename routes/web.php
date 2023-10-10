@@ -8,6 +8,8 @@ use App\Http\Controllers\ParkController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Auth;
+use App\Models\Admin; // Add this line to import the Admin model
+
 
 
 use App\Http\Controllers\HotelController;
@@ -168,7 +170,7 @@ Route::get('/logout', function () {
 });
 Route::get('/logout', function () {
     // Auth::logout();
-    return redirect('/login');
+    return redirect('/register');
 });
 
 Route::get('/signup', function () {
@@ -219,8 +221,25 @@ Route::get('/admin/users', function () {
 
 Route::get('/nakuruparks/{tourId}', [TourController::class, 'showNakuruParks']);
 
+Route::get('show_tour/{id}', [DashboardController::class, 'show'])->name('admin.show_tour');
 
-Route::get('/admin/edit', [DashboardController::class,'edit'])->name('edit');
+
+
+// routes/web.php
+
+
+// Define the route group for admin-related routes
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+    // Add a route for the edit tour view
+    Route::get('admin/edit_tour/{id?}', [DashboardController::class,'edit'])->name('admin.edit_tour_view');
+    Route::get('show_tour/{id}', [DashboardController::class, 'show'])->name('admin.show_tour');
+    Route::get('edit/{id}', [DashboardController::class, 'edit'])->name('admin.edit');
+    Route::delete('admin/destroy/{id}', [DashboardController::class, 'destroy'])->name('admin.destroy');
+
+
+
+    
+});
 // Route::post('/admin/addtour', [DashboardController::class,'addTour'])->name('add_tour');
 
 // Route for logging out
@@ -247,6 +266,16 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/edit_tour/{id}', [DashboardController::class, 'editTour'])->name('edit_tour');
     Route::post('/admin/update_tour/{id}', [DashboardController::class, 'updateTour'])->name('update_tour');
     Route::get('/admin/delete_tour/{id}', [DashboardController::class, 'deleteTour'])->name('delete_tour');
+
+    Route::get('/profile', [ProfileController::class,'show'])->name('profile.show')->middleware('auth');
+Route::get('/profile/edit', [ProfileController::class,'edit'])->name('profile.edit')->middleware('auth');
+Route::put('/profile', [ProfileController::class,'update'])->name('profile.update')->middleware('auth');
+Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
+
+// routes/web.php
+
+Route::get('/profile', [UserController::class,'profile'])->name('profile');
+
 
     Route::get('/admin/logout', [DashboardController::class, 'logout'])->middleware('auth');
     Route::post('/admin/logout', [DashboardController::class, 'logout'])->name('admin.logout');
@@ -317,7 +346,15 @@ Route::get('/admin/users/edit', function () {
 });
 
 Route::get('/addtour', [DashboardController::class, 'add_tour'])->name('add_tour');
-Route::get('/addtour', [DashboardController::class,'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+// Edit a tour
+Route::get('/admin/edit_tour/{id}', [DashboardController::class, 'edit'])->name('edit_tour');
+Route::put('/admin/update_tour/{id}', [DashboardController::class, 'update'])->name('update_tour');
+Route::delete('/admin/delete_tour/{id}', [DashboardController::class, 'destroy'])->name('delete_tour');
+
+Route::get('/tours', [TourController::class, 'index'])->name('tour.index');
+
+
 // Other DashboardController routes
 
 // Route::post('/tours', [TourController::class, 'store'])->name('tours.store');
@@ -407,7 +444,7 @@ Route::post('/logout',function(){
 
         // Auth::logout();
         Session::flush();
-        return redirect('login');
+        return redirect('register');
 
 
 });

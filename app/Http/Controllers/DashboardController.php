@@ -12,10 +12,12 @@ use Illuminate\Http\RedirectResponse;
 class DashboardController extends Controller
 {
     public function index()
-{
-    $tours = Tour::all();
-    return view('tours.index', compact('tours'));
-}
+    {
+        $tours = Tour::all(); // Retrieve the list of tours
+        $tour = null; // Initialize an empty $tour variable (for the form)
+    
+        return view('tours.index', ['tours' => $tours]);
+    }
     
     public function add_tour(Request $request, Tour $tourModel)
     {
@@ -44,45 +46,46 @@ class DashboardController extends Controller
             ]);
 
             // Handle success
-            return redirect()->route('admin.addtour')->with("success", 'Tour added successfully');
+            return redirect()->route('admin.add_tour')->with("success", 'Tour added successfully');
         } catch (\Exception $exception) {
             // Handle errors
             if ($exception->getCode() === '23000') {
                 // Duplicate entry error
-                return redirect()->route('admin.addtour')->withInput()->withErrors(['name' => 'Tour name already exists.']);
+                return redirect()->route('admin.add_tour')->withInput()->withErrors(['name' => 'Tour name already exists.']);
             } else {
                 // Other database-related error
-                return redirect()->route('admin.addtour')->withInput()->withErrors(['error' => 'An error occurred. Please try again later.']);
+                return redirect()->route('admin.add_tour')->withInput()->withErrors(['error' => 'An error occurred. Please try again later.']);
             }
         }
     }
 
-    public function edit($id)
-    {
-        // Retrieve the selected tour
-        $selectedTour = Tour::find($id);
+    public function dashboard()
+{
+    $tours = Tour::all(); // Retrieve the list of tours
+    return view('admin.dashboard', compact('tours'));
+}
 
-        // Retrieve the list of all tours
-        $tours = Tour::all();
+public function edit($id = null)
+{
+    // Retrieve the selected tour
+    $selectedTour = Tour::find($id);
 
-        // Return the view for editing a tour
-        return view('admin.edit_tour', compact('selectedTour', 'tours'));
+    // Retrieve the list of all tours
+    $tours = Tour::all();
+
+    // Return the view for editing a tour
+    return view('admin.edit_tour', compact('selectedTour', 'tours'));
+}
+public function show($id)
+{
+    $tour = Tour::find($id); // Retrieve the tour by its ID
+    if (!$tour) {
+        abort(404); // Handle the case where the tour is not found
     }
-    
-    private function uploadImage($image) {
-        // Get filename with extension
-        $filenamewithext = $image->getClientOriginalName();
-        // Get filename only
-        $filename = pathinfo($filenamewithext, PATHINFO_FILENAME);
-        // Get extension
-        $extension = $image->getClientOriginalExtension();
-        // Filename to store
-        $fileNametostore = $filename . '_' . time() . '.' . $extension;
-        // Upload the file
-        $path = $image->storeAs('public/image', $fileNametostore);
-    
-        return $fileNametostore;
-    }
+
+    return view('dashboard', compact('tour'));
+}
+
     public function update(Request $request, $id)
     {
         // Update the tour with the provided data
@@ -93,34 +96,37 @@ class DashboardController extends Controller
             'image' => 'image', // Optional: Image update
             'price' => 'required|numeric',
         ]);
-
+    
         if ($request->hasFile('image')) {
             // Handle image update
             $fileNametostore = $this->uploadImage($request->file('image'));
             $tour->image = $fileNametostore;
         }
-
+    
         // Update tour details
         $tour->name = $request->name;
         $tour->description = $request->description;
         $tour->price = $request->price;
         $tour->save();
-
+    
         // Handle success
-        return redirect()->route('admin.addtour')->with("success", 'Tour updated successfully');
+        return redirect()->route('admin.add_tour')->with("success", 'Tour updated successfully');
     }
-
-
+    
     public function destroy($id)
-    {
-        // Delete the tour with the provided ID
-        $tour = Tour::findOrFail($id);
-        $tour->delete();
+{
+    // Retrieve the selected tour
+    $tour = Tour::find($id);
 
-        // Handle success
-        return redirect()->route('admin.addtour')->with("success", 'Tour deleted successfully');
+    if (!$tour) {
+        return redirect()->route('admin.dashboard')->with('error', 'Tour not found.');
     }
 
+    // Delete the tour
+    $tour->delete();
+
+    return redirect()->route('admin.dashboard')->with('success', 'Tour deleted successfully.');
+}
 
     public function logout(): JsonResponse
     {

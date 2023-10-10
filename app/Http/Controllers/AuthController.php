@@ -229,6 +229,8 @@
 {
     try {
         $user = Auth::user();
+        Auth::logout(); // Log the user out
+
         if ($user) {
             $user->tokens()->delete();
             return response()->json(['message' => 'You have logged out.'], 200);
@@ -239,6 +241,7 @@
 
         return response()->json(['error' => $errorMessage], 500);
     }
+    return redirect('/home'); // You can change the URL to your desired route
 
     // Return a JSON response in case of unexpected errors
     return response()->json(['error' => 'An unexpected error occurred.'], 500);

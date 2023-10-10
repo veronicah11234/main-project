@@ -3,6 +3,8 @@
 @extends('layouts.app')
 
 @section('content')
+<button onclick="window.location.href = '{{ route('admin') }}'">Go Back</button>
+
    
 <div class="container">
     <h2>Add a New Park</h2>
@@ -31,21 +33,15 @@
         <!-- Add more form fields for other park information as needed -->
 
         <button type="submit" class="btn btn-primary">Submit</button>
+        {{-- <button type="submit" class="btn "><a href="{{ route('admin.edit_tour', ['id' => $tour->id]) }}">Edit</a></button> --}}
+
+            </button>
+  
     </form>
 </div>
+  
 
-            {{-- <div class="mb-3">
-                <label for="availability" class="form-label">Availability:</label>
-                <select class="form-select" id="availability" name="availability" required>
-                    <option value="Available">Available</option>
-                    <option value="Sold Out">Sold Out</option>
-                </select>
-            </div> --}}
-
-            
-
-            <button type="submit" class="btn btn-primary">Create Tour</button>
-        </form>
+<!-- Add a button that triggers JavaScript to go back to the home page -->
 
         <hr>
 
@@ -56,28 +52,38 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Description</th>
                     <th>Price</th>
-                    {{-- <th>Availability</th> --}}
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($tours as $tour)
-                <div>
-                    <h2>{{ $tour->name }}</h2>
-                    <p>{{ $tour->description }}</p>
-                    <p>Price: ${{ $tour->price }}</p>
-                    @if ($tour->image_path)
-                        <img src="{{ asset('storage/' . $tour->image_path) }}" alt="{{ $tour->name }}" width="200">
-                    @else
-                        <p>No image available</p>
-                    @endif
-                </div>
-            @endforeach
+                    <tr>
+                        <td>{{ $tour->id }}</td>
+                        <td>{{ $tour->name }}</td>
+                        <td>{{ $tour->description }}</td>
+                        <td>{{ $tour->price }}</td>
+                        <td>
+                            <a href="{{ route('admin.show_tour', ['id' => $tour->id]) }}">View</a> |
+                            <a href="{{ route('admin.edit', ['id' => $tour->id]) }}">Edit</a> |
+                            <form action="{{ route('admin.destroy', ['id' => $tour->id]) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
-    </div>
-
+        
+        
+        
+        
+        
+        
+        
     <!-- Show Tour Details -->
     @if(isset($selectedTour))
         <div class="container">

@@ -7,7 +7,7 @@
     <p><strong>Price:</strong> {{ $tour->price }}</p>
     <p><strong>Image:</strong> {{ $tour->image }}</p>
     {{-- <p><strong>Availability:</strong> {{ $tour->availability }}</p> --}}
-    <a href="{{ route('tours.edit', $tour->id) }}">Edit</a> |
+    <a href="{{ route('admin.show_tour', $tour->id) }}">Edit</a> |
     <form action="{{ route('tours.destroy', $tour->id) }}" method="post">
         @csrf
         @method('DELETE')
