@@ -49,9 +49,6 @@
                 <div class="text">
                     <h2>Nairobi National Park</h2>
                 </div>
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-success"><a href="/book">book now</a></button>
-                </div>
             </div>
         </div><br><br><br>
     <div class="card">

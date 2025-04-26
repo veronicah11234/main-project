@@ -38,11 +38,11 @@ use App\Http\Controllers\TourController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::get('/about', function () {
@@ -112,16 +112,7 @@ Route::get('/hotels', function () {
 Route::get('/bogoria', function () {
     return view('bogoria');
 });
-
-Route::get('/nakuru', function () {
-    return view('nakuru');
-});
-Route::get('/nairobi', function () {
-    return view('nairobi');
-});
-Route::get('/naivasha', function () {
-    return view('naivasha');
-});
+ 
 
 Route::get('/book', function () {
     return view('book');
@@ -207,9 +198,9 @@ Route::get('/book', function () {
     return view('book');
 })->name('book');
 
-Route::get('/mpesa-reciept', function () {
-    return view('mpesa_reciept');
-})->name('mpesa-reciept');
+// Route::get('/mpesa-reciept', function () {
+//     return view('mpesa_reciept');
+// })->name('mpesa-reciept');
 
 Route::get('/paypal-reciept', function () {
     return view('paypal_reciept');
@@ -318,9 +309,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
     // Remove the AutoLogout middleware from these routes
-    Route::get('/admin/logout', [DashboardController::class, 'logout'])->middleware('auth');
-    Route::post('/admin/logout', [DashboardController::class, 'logout'])->name('admin.logout');
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/admin/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('admin.logout');
+    Route::post('/admin/logout', [DashboardController::class, 'logout']);
+    
 
     // Define other admin routes as needed
 });
@@ -459,8 +450,14 @@ Route::group(['middleware' => ['auth:sanctum', 'role:user']], function(){
     Route::post('/logout', [AuthController::class, 'logout']);
         Route::post('/delete-account', [AuthController::class, 'softDeleteAccount']);
 });
+Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');
+
+Route::get('/initiate-payment', [PaymentController::class,'initiatePayment']);
+Route::post('/payment-callback', [PaymentController::class,'handlePaymentCallback']);
 
 
 Route::group(['middleware' => ['auth:sanctum', 'role:admin']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
+
+

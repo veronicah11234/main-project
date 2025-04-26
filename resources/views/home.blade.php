@@ -124,11 +124,7 @@ video {
             <video autoplay muted loop id="my-downloads">
                 <source src="images/buffallov.mp4" type="video/mp4">
             </video>
-            {{-- <div class="overlay"> 
-                {{-- <div class="submit-button">
-                    <button type="submit" class="btn btn-success"><a href="/book">Book Now</a></button>
-                </div> --}}
-            {{-- </div>  --}}
+
         </div>
         <div style="background-color: black; width:480px; height:200px; position:relative; opacity:0.5; color:white;text-align:center; align-items:center; display:flex;padding:20px; margin-bottom:-40px; border:0.5rem soliid; border-radius:3rem ">
             <div><h1>Miwamu Tourism Management</h1>
@@ -271,6 +267,7 @@ video {
                     <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+
                 </div>
             </div>
             <div class="col-md-4">

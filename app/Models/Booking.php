@@ -9,7 +9,7 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['username', 'email', 'phone', 'date', 'time', 'message'];
+    protected $fillable = ['username', 'email', 'phone','amount', 'date', 'time', 'message'];
 }
 
 //       public function destination()

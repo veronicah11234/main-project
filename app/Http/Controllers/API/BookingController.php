@@ -74,28 +74,4 @@ Booking::create($validatedData);
         // Redirect to the booking form with a success message
         return redirect()->route('booking.create')->with('success', 'Booking submitted successfully!');
     }
-    public function logout(): JsonResponse
-    {
-        try {
-            $user = Auth::user(); // Use Auth facade to get the authenticated user
-            if ($user) {
-                $user->tokens()->delete();
-                Auth::logout(); // Log the user out
-    
-                // Return a JSON response
-                return response()->json(['message' => 'You have logged out.'], 200);
-            } else {
-                return response()->json(['message' => 'User not found.'], 404);
-            }
-        } catch (\Exception $e) {
-            $errorMessage = $e->getMessage(); // Get the specific error message
-            Log::error($errorMessage); // Log the error message for debugging purposes
-                return redirect('/admin/edit')->with("success", 'Tour added successfully');
-
-            // Redirect to the home page upon error
-            return response()->json(['error' => 'An error occurred. Please try again later.'], 500);
-            return redirect('/home')->with("success", 'Tour added successfully');
-
-        }
-    }
 }

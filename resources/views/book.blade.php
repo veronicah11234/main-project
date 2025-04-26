@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css">
     <title>Booking Page</title>
+    <style>
+        /* Add your custom styles for the button */
+.custom-button {
+    background-color: #bdccdb;
+    /* color: #fff;  */
+    border: none; 
+    padding: 5px 15px;
+    font-size: 18px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+
 </head>
 <body>
     @include ("navbar")
-
     @if(session('success'))
         <div class="alert alert-success mt-4">
             {{ session('success') }}
@@ -40,9 +57,12 @@
                     <div class="mb-3">
                         <label for="payment-method" class="form-label">Payment Method</label>
                         <select class="form-select" id="payment-method" name="payment_method">
-                            <option value="mpesa">M-Pesa</option>
+                            {{-- <option value="mpesa">M-Pesa</option> --}}
                             <option value="paypal">PayPal</option>
                         </select>
+                        {{-- <button type="button" class="btn btn-lg btn-block custom-button" id="paystackButton">
+                            <i class="fa fa-plus-circle"></i> Pay Now
+                        </button> --}}
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date</label>
@@ -58,120 +78,49 @@
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-lg btn-block custom-button" id="paystackButton">
+                            <i class="fa fa-plus-circle"></i> Pay Now
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <!-- ... Your HTML code ... -->
 
-<!-- ... Your HTML code ... -->
-{{-- 
-<script>
-    // Handle form submission.
-    var form = document.getElementById('payment-form');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        var paymentMethod = document.getElementById('payment-method').value;
-
-        if (paymentMethod === 'mpesa') {
-            // Handle M-Pesa payment logic here.
-            processMpesaPayment();
-        } else if (paymentMethod === 'paypal') {
-            // Handle PayPal payment logic here.
-            processPayPalPayment();
-        } else {
-            // Handle other payment methods if needed.
-        }
-    });
-
-    // Process M-Pesa Payment
-    function processMpesaPayment() {
-        // Implement your M-Pesa payment integration logic here.
-        // After a successful payment, collect transaction details.
-        var transactionDetails = {
-            username: document.getElementById('username').value,
-            email: document.getElementById('email').value,
-            amount: document.getElementById('amount').value,
-            date: document.getElementById('date').value,
-            // Add more details as needed
-        };
-
-        // Generate a receipt based on transactionDetails.
-        var mpesaReceipt = generateMpesaReceipt(transactionDetails);
-
-        // Redirect to the M-Pesa receipt page with the receipt data.
-        redirectToReceiptPage('mpesa_reciept', mpesaReceipt);
-    }
-    function redirectToReceiptPage(routeName, receiptData) {
-    // Store receipt data in localStorage
-    localStorage.setItem('receiptData', JSON.stringify(receiptData));
-
-    // Redirect to the specified route
-    window.location.href = route(routeName);
-}
-
-
-    // Process PayPal Payment
-    function processPayPalPayment() {
-        // Implement your PayPal payment integration logic here.
-        // After a successful payment, collect transaction details.
-        var transactionDetails = {
-            username: document.getElementById('username').value,
-            email: document.getElementById('email').value,
-            amount: document.getElementById('amount').value,
-            date: document.getElementById('date').value,
-            // Add more details as needed
-        };
-
-        // Generate a receipt based on transactionDetails.
-        var paypalReceipt = generatePayPalReceipt(transactionDetails);
-
-        // Redirect to the PayPal receipt page with the receipt data.
-        redirectToReceiptPage('paypal_reciept', paypalReceipt);
-    }
-
-    // Generate M-Pesa Receipt
-    function generateMpesaReceipt(data) {
-        // Implement logic to create an M-Pesa receipt based on data.
-        // Use a template with placeholders for dynamic data.
-        // Save the receipt data in your database.
-        return 'M-Pesa Receipt Content';
-    }
-
-    // Generate PayPal Receipt
-    function generatePayPalReceipt(data) {
-        // Implement logic to create a PayPal receipt based on data.
-        // Use a template with placeholders for dynamic data.
-        // Save the receipt data in your database.
-        return 'PayPal Receipt Content';
-    }
-
-    // Redirect to Receipt Page
-    function redirectToReceiptPage(page, receiptData) {
-        // Create a form to POST the receipt data to the receipt page.
-        var form = document.createElement('form');
-        form.method = 'POST';
-        form.action = page;
-        
-        // Create an input field to hold the receipt data.
-        var input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = 'receiptData';
-        input.value = receiptData;
-        
-        // Append the input field to the form.
-        form.appendChild(input);
-        
-        // Submit the form to the receipt page.
-        document.body.appendChild(form);
-        form.submit();
-    } --}}
-{{-- </script> --}}
+    <script>
+        document.getElementById('paystackButton').addEventListener('click', function() {
+            var email = document.getElementById('email').value;
+            var amount = document.getElementById('amount').value * 100; // Amount in kobo
+            var ref = 'your_unique_transaction_reference'; // Replace with your own logic to generate a unique reference
+    
+            var handler = PaystackPop.setup({
+                key: 'pk_test_62f12da573adae1eb669007d63532291dc0ad9b0',
+                email: 'miriamwangui525@gmail.com',
+                amount: 200,
+                ref: ref,
+                onClose: function() {
+                    // Handle when the Paystack dialog is closed (e.g., the user cancels the payment)
+                },
+                callback: function(response) {
+                    // Handle the response from Paystack, e.g., send it to your server for verification
+                    if (response.status === 'success') {
+                        // Payment was successful
+                        window.location.href = '/payment-success'; // Redirect to a success page
+                    } else {
+                        // Payment failed
+                        window.location.href = '/payment-failed'; // Redirect to a failure page
+                    }
+                }
+            });
+            handler.openIframe();
+        });
+    </script>
 
 
 </body>
